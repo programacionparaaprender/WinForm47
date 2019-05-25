@@ -1,0 +1,23 @@
+﻿https://stackoverflow.com/questions/16497938/ef-5-enable-migrations-no-context-type-was-found-in-the-assembly
+
+<connectionStrings>
+    <add name="MyDBConnectionString" 
+    connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MyDb.mdf;Integrated Security=True" 
+    providerName="System.Data.SqlClient"/>
+    </connectionStrings>
+
+Enable-Migrations -ProjectName CRUDSystem -ContextTypeName MyDBContext
+
+Add-Migration Initial
+
+Update-Database
+
+agregue luego Books 
+
+add-migration updateNameProperty
+
+update-database
+
+Al agregar MyDBInitializer  es el que tiene el seeder
+
+update-database
