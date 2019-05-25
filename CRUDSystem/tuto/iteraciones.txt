@@ -1,4 +1,13 @@
-﻿https://stackoverflow.com/questions/16497938/ef-5-enable-migrations-no-context-type-was-found-in-the-assembly
+﻿
+Excel
+------------------
+https://webprogramacion.com/334/csharp/exportar-datos-de-un-datagridview-a-un-fichero-excel-en-c.aspx
+
+
+----
+Entity framework
+----------------
+https://stackoverflow.com/questions/16497938/ef-5-enable-migrations-no-context-type-was-found-in-the-assembly
 
 <connectionStrings>
     <add name="MyDBConnectionString" 

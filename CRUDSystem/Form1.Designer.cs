@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtfName = new System.Windows.Forms.TextBox();
             this.txtlName = new System.Windows.Forms.TextBox();
             this.txtAge = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
@@ -36,21 +36,22 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.dtDOB = new System.Windows.Forms.DateTimePicker();
+            this.dtpDOB = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnExportExcel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtName
+            // txtfName
             // 
-            this.txtName.Location = new System.Drawing.Point(118, 50);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 20);
-            this.txtName.TabIndex = 0;
+            this.txtfName.Location = new System.Drawing.Point(118, 50);
+            this.txtfName.Name = "txtfName";
+            this.txtfName.Size = new System.Drawing.Size(100, 20);
+            this.txtfName.TabIndex = 0;
             // 
             // txtlName
             // 
@@ -58,6 +59,7 @@
             this.txtlName.Name = "txtlName";
             this.txtlName.Size = new System.Drawing.Size(100, 20);
             this.txtlName.TabIndex = 1;
+            this.txtlName.TextChanged += new System.EventHandler(this.TxtlName_TextChanged);
             // 
             // txtAge
             // 
@@ -110,12 +112,12 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Address";
             // 
-            // dtDOB
+            // dtpDOB
             // 
-            this.dtDOB.Location = new System.Drawing.Point(118, 242);
-            this.dtDOB.Name = "dtDOB";
-            this.dtDOB.Size = new System.Drawing.Size(100, 20);
-            this.dtDOB.TabIndex = 8;
+            this.dtpDOB.Location = new System.Drawing.Point(118, 242);
+            this.dtpDOB.Name = "dtpDOB";
+            this.dtpDOB.Size = new System.Drawing.Size(100, 20);
+            this.dtpDOB.TabIndex = 8;
             // 
             // label5
             // 
@@ -134,6 +136,7 @@
             this.btnSave.TabIndex = 10;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // btnUpdate
             // 
@@ -143,6 +146,7 @@
             this.btnUpdate.TabIndex = 11;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // btnDelete
             // 
@@ -152,6 +156,7 @@
             this.btnDelete.TabIndex = 12;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // dataGridView1
             // 
@@ -160,18 +165,30 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(507, 150);
             this.dataGridView1.TabIndex = 13;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellDoubleClick);
+            // 
+            // btnExportExcel
+            // 
+            this.btnExportExcel.Location = new System.Drawing.Point(442, 244);
+            this.btnExportExcel.Name = "btnExportExcel";
+            this.btnExportExcel.Size = new System.Drawing.Size(112, 23);
+            this.btnExportExcel.TabIndex = 14;
+            this.btnExportExcel.Text = "Exportar a excel";
+            this.btnExportExcel.UseVisualStyleBackColor = true;
+            this.btnExportExcel.Click += new System.EventHandler(this.BtnExportExcel_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(609, 463);
+            this.Controls.Add(this.btnExportExcel);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dtDOB);
+            this.Controls.Add(this.dtpDOB);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -179,7 +196,7 @@
             this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.txtAge);
             this.Controls.Add(this.txtlName);
-            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.txtfName);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -190,7 +207,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtfName;
         private System.Windows.Forms.TextBox txtlName;
         private System.Windows.Forms.TextBox txtAge;
         private System.Windows.Forms.TextBox txtAddress;
@@ -198,12 +215,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dtDOB;
+        private System.Windows.Forms.DateTimePicker dtpDOB;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnExportExcel;
     }
 }
 
