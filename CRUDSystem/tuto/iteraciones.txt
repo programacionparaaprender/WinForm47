@@ -1,4 +1,10 @@
 ﻿
+
+Reporting Viewer
+------------------
+https://www.youtube.com/watch?v=yFXARwLrUd8
+
+
 Excel
 ------------------
 https://webprogramacion.com/334/csharp/exportar-datos-de-un-datagridview-a-un-fichero-excel-en-c.aspx

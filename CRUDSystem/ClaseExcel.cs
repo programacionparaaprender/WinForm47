@@ -1,20 +1,51 @@
 
+using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.OleDb;
 using System.IO;
+using System.Windows.Forms;
 using Microsoft.Office.Interop;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace CRUDSystem
 {
 public class ClaseExcel
 {
 
-    public void ImportExcellToDataGridView(ref string path, DataGridView Datagrid)
+        public void ImportarExcel(string path, DataGridView Datagrid)
+        {
+            try
+            {
+                string stConexion = ("Provider=Microsoft.ACE.OLEDB.12.0;" + ("Data Source=" + (path + ";Extended Properties=\"Excel 12.0;Xml;HDR=YES;IMEX=2\";")));
+                OleDbConnection cnConex = new OleDbConnection(stConexion);
+                OleDbCommand Cmd = new OleDbCommand("Select * From [Hoja1$]");
+                DataSet Ds = new DataSet();
+                OleDbDataAdapter Da = new OleDbDataAdapter();
+                DataTable Dt = new DataTable();
+                cnConex.Open();
+                Cmd.Connection = cnConex;
+                Da.SelectCommand = Cmd;
+                Da.Fill(Ds);
+                Dt = Ds.Tables[0];
+                Datagrid.Columns.Clear();
+                Datagrid.DataSource = Dt;
+                
+            }
+            catch (Exception ex)
+            {
+                //Interaction.MsgBox(ex.Message, MsgBoxStyle.Critical, "Error");
+            }
+            //return true;
+        }
+
+        public void ImportExcellToDataGridView(string path, DataGridView Datagrid)
     {
         try
         {
             string stConexion = ("Provider=Microsoft.ACE.OLEDB.12.0;" + ("Data Source=" + (path + ";Extended Properties=\"Excel 12.0;Xml;HDR=YES;IMEX=2\";")));
             OleDbConnection cnConex = new OleDbConnection(stConexion);
-            OleDbCommand Cmd = new OleDbCommand("Select * From [ABRIL 2019$]");
+            OleDbCommand Cmd = new OleDbCommand("Select * From [Hoja1$]");
             DataSet Ds = new DataSet();
             OleDbDataAdapter Da = new OleDbDataAdapter();
             DataTable Dt = new DataTable();
@@ -22,7 +53,7 @@ public class ClaseExcel
             Cmd.Connection = cnConex;
             Da.SelectCommand = Cmd;
             Da.Fill(Ds);
-            Dt = Ds.Tables(0);
+            Dt = Ds.Tables[0];
             Datagrid.Columns.Clear();
             Datagrid.DataSource = Dt;
 
@@ -41,87 +72,79 @@ public class ClaseExcel
             dt2.Columns.Add(Cargo);
             dt2.Columns.Add(Costos);
 
-            List<EntidadSIS> lista = new List<EntidadSIS>();
+            List<Entidad> lista = new List<Entidad>();
             for (int index = 0; index <= Dt.Rows.Count - 1; index++)
             {
-                if ((index > 9 & index < 403))
+                    DataRow row = Dt.Rows[index];
+                if (index > 9 && index < 403)
                 {
-                    EntidadSIS lis = new EntidadSIS();
-                    lis.N = Dt.Rows(index).Item("F3").ToString;
-                    lis.Directivo = Dt.Rows(index).Item("F4").ToString;
-                    lis.Dni = Dt.Rows(index).Item("F5").ToString;
-                    lis.ApyNom = Dt.Rows(index).Item("F6").ToString;
-                    lis.Cargo = Dt.Rows(index).Item("F7").ToString;
-                    lis.Costos = Dt.Rows(index).Item("F8").ToString;
-                    lista.Add(lis);
+                    Entidad lis = new Entidad();
+                        lis.N = row["F3"].ToString; //Dt.Rows[index].Item["F3"].ToString();
+                    lis.Directivo = row["F4"].ToString;//Dt.Rows[index].Item("F4").ToString;
+                        lis.Dni = row["F5"].ToString;//Dt.Rows[index].Item("F5").ToString;
+                        lis.ApyNom = row["F6"].ToString;//Dt.Rows[index].Item("F6").ToString;
+                        lis.Cargo = row["F7"].ToString;//Dt.Rows[index].Item("F7").ToString;
+                        lis.Costos = row["F8"].ToString;//Dt.Rows[index].Item("F8").ToString;
+                        lista.Add(lis);
 
-                    DataRow dtrow = dt2.NewRow;
-                    dtrow.Item(0) = Dt.Rows(index).Item("F3").ToString;
-                    dtrow.Item(1) = Dt.Rows(index).Item("F4").ToString;
-                    dtrow.Item(2) = Dt.Rows(index).Item("F5").ToString;
-                    dtrow.Item(3) = Dt.Rows(index).Item("F6").ToString;
-                    dtrow.Item(4) = Dt.Rows(index).Item("F7").ToString;
-                    dtrow.Item(5) = Dt.Rows(index).Item("F8").ToString;
-                    dt2.Rows.Add(dtrow);
+                    DataRow dtrow = dt2.NewRow();
+                    dtrow[0] = row["F3"];//Dt.Rows(index).Item("F3").ToString;
+                        dtrow[1] = row["F4"];//Dt.Rows(index).Item("F4").ToString;
+                        dtrow[2] = row["F5"];//Dt.Rows(index).Item("F5").ToString;
+                        dtrow[3] = row["F6"];//Dt.Rows(index).Item("F6").ToString;
+                        dtrow[4] = row["F7"];//Dt.Rows(index).Item("F7").ToString;
+                        dtrow[5] = row["F8"];//Dt.Rows(index).Item("F8").ToString;
+                        dt2.Rows.Add(dtrow);
                 }
             }
             // Me.DataGridView2.DataSource = lista
-            this.DataGridView2.DataSource = dt2;
+            Datagrid.DataSource = dt2;
         }
         catch (Exception ex)
         {
-            Interaction.MsgBox(ex.Message, MsgBoxStyle.Critical, "Error");
+            //Interaction.MsgBox(ex.Message, MsgBoxStyle.Critical, "Error");
         }
-        return true;
+        //return true;
     }
 
-    private void btnCargar()
-    {
-        OpenFileDialog openFD = new OpenFileDialog();
-        {
-            var withBlock = openFD;
-            withBlock.Title = "Seleccionar archivos";
-            withBlock.Filter = "Archivos Excel(*.xls;*.xlsx)|*.xls;*xlsx|Todos los archivos(*.*)|*.*";
-            withBlock.Multiselect = false;
-            withBlock.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.Desktop;
-            if (withBlock.ShowDialog == Windows.Forms.DialogResult.OK)
-                ImportExcellToDataGridView(ref withBlock.FileName, DataGridView1);
-        }
-    }
+    
 
 
     public void LlenarCliente(string path, DataGridView DataGridView2)
-{
+    {
     string cadena = ("Provider=Microsoft.ACE.OLEDB.12.0;" + ("Data Source=" + (path + ";Extended Properties=\"Excel 12.0;Xml;HDR=YES;IMEX=2\";")));
 
+            Microsoft.Office.Interop.Excel.Application xlibro;
 
+            //Microsoft.Office.Interop.Excel.Application xlibro;
+            xlibro = new Microsoft.Office.Interop.Excel.Application();
+            
+            //xlibro = Microsoft.Office.Interop.Excel.Application.CreateObject("Excel.Application");
 
-    Microsoft.Office.Interop.Excel.Application xlibro;
-    xlibro = Interaction.CreateObject("Excel.Application");
-    xlibro.Workbooks.Open(path);
+            xlibro.Workbooks.Open(path);
     // xlibro.Visible = True
-    xlibro.Sheets("ABRIL 2019").Select();
+    xlibro.Sheets["ABRIL 2019"].Select();
 
 
     
     DataTable dt = new DataTable();
-    dt = (DataTable)this.DataGridView2.DataSource;
+    dt = (DataTable)DataGridView2.DataSource;
 
     
     int RANGO = 12;
 
-    Excel.Range Range;
+            Microsoft.Office.Interop.Excel.Range Range;
 
     int index2 = 1;
     foreach (DataRow row in dt.Rows) 
     {
-        xlibro.Range("D" + (RANGO + 1).ToString()).Select();
-            Range = xlibro.Range("D" + (RANGO + 1).ToString()).EntireRow;
-            Range.Insert(Excel.XlInsertShiftDirection.xlShiftDown, System.Type.Missing);
+        xlibro.Range["D" + (RANGO + 1).ToString()].Select();
+            Range = xlibro.Range["D" + (RANGO + 1).ToString()].EntireRow;
+            Range.Insert(Microsoft.Office.Interop.Excel.XlInsertShiftDirection.xlShiftDown, System.Type.Missing);
 
 
-            xlibro.Range("C" + RANGO.ToString()).Value = index2.ToString();
-            xlibro.Range("D" + RANGO.ToString()).Value = row("N").ToString;
+            xlibro.Range["C" + RANGO.ToString()].Value = index2.ToString();
+            xlibro.Range["D" + RANGO.ToString()].Value = row["N"];
             RANGO += 1;
             index2 = index2 + 1;
 
@@ -133,18 +156,20 @@ public class ClaseExcel
 }
 
 
-    public void btnGuardar()
+    public void btnGuardar(DataGridView DataGridView2)
     {
         OpenFileDialog openFD = new OpenFileDialog();
-        {
-            var withBlock = openFD;
-            withBlock.Title = "Seleccionar archivos";
-            withBlock.Filter = "Archivos Excel(*.xls;*.xlsx)|*.xls;*xlsx|Todos los archivos(*.*)|*.*";
-            withBlock.Multiselect = false;
-            withBlock.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.Desktop;
-            if (withBlock.ShowDialog == Windows.Forms.DialogResult.OK)
-                LlenarCliente(withBlock.FileName, this.DataGridView2);
-        }
+        
+            openFD.Title = "Seleccionar archivos";
+            openFD.Filter = "Archivos Excel(*.xls;*.xlsx)|*.xls;*xlsx|Todos los archivos(*.*)|*.*";
+            openFD.Multiselect = false;
+            //withBlock.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.Desktop;
+                string FileName = openFD.FileName;
+                if (openFD.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    LlenarCliente(FileName, DataGridView2);
+                }
+        
     }
 }
 }
