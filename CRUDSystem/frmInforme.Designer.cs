@@ -30,6 +30,7 @@
         {
             this.btnImportar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.treeView1 = new System.Windows.Forms.TreeView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,9 +52,17 @@
             this.dataGridView1.Size = new System.Drawing.Size(441, 241);
             this.dataGridView1.TabIndex = 1;
             // 
+            // treeView1
+            // 
+            this.treeView1.Location = new System.Drawing.Point(493, 91);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(237, 185);
+            this.treeView1.TabIndex = 2;
+            // 
             // frmInforme
             // 
-            this.ClientSize = new System.Drawing.Size(573, 387);
+            this.ClientSize = new System.Drawing.Size(785, 387);
+            this.Controls.Add(this.treeView1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnImportar);
             this.Name = "frmInforme";
@@ -66,5 +75,6 @@
 
         private System.Windows.Forms.Button btnImportar;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TreeView treeView1;
     }
 }

@@ -11,11 +11,19 @@ namespace CRUDSystem
     public partial class frmInforme : Form
     {
         private ClaseExcel excel;
-
+        private Util util;
         public frmInforme()
         {
-            excel = new ClaseExcel();
+            
             InitializeComponent();
+            excel = new ClaseExcel();
+            util = new Util();
+            List<Arbol> lista = util.añadir();
+            foreach (NodoArbol node in util.añadirTreeView())
+            {
+                treeView1.Nodes.Add(node);
+            }
+
         }
 
         private void BtnImportar_Click(object sender, EventArgs e)
