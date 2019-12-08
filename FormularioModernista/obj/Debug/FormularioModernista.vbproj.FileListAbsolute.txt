@@ -1,0 +1,11 @@
+C:\Users\Bus209\Documents\htdocs\WinForm47\FormularioModernista\bin\Debug\FormularioModernista.exe.config
+C:\Users\Bus209\Documents\htdocs\WinForm47\FormularioModernista\bin\Debug\FormularioModernista.exe
+C:\Users\Bus209\Documents\htdocs\WinForm47\FormularioModernista\bin\Debug\FormularioModernista.pdb
+C:\Users\Bus209\Documents\htdocs\WinForm47\FormularioModernista\bin\Debug\FormularioModernista.xml
+C:\Users\Bus209\Documents\htdocs\WinForm47\FormularioModernista\obj\Debug\FormularioModernista.vbprojAssemblyReference.cache
+C:\Users\Bus209\Documents\htdocs\WinForm47\FormularioModernista\obj\Debug\FormularioModernista.Form1.resources
+C:\Users\Bus209\Documents\htdocs\WinForm47\FormularioModernista\obj\Debug\FormularioModernista.Resources.resources
+C:\Users\Bus209\Documents\htdocs\WinForm47\FormularioModernista\obj\Debug\FormularioModernista.vbproj.GenerateResource.cache
+C:\Users\Bus209\Documents\htdocs\WinForm47\FormularioModernista\obj\Debug\FormularioModernista.exe
+C:\Users\Bus209\Documents\htdocs\WinForm47\FormularioModernista\obj\Debug\FormularioModernista.xml
+C:\Users\Bus209\Documents\htdocs\WinForm47\FormularioModernista\obj\Debug\FormularioModernista.pdb

@@ -1,0 +1,8 @@
+C:\Users\Bus209\Documents\htdocs\WinForm47\Entidades\bin\Debug\Entidades.dll
+C:\Users\Bus209\Documents\htdocs\WinForm47\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Bus209\Documents\htdocs\WinForm47\Entidades\bin\Debug\Entidades.xml
+C:\Users\Bus209\Documents\htdocs\WinForm47\Entidades\obj\Debug\Entidades.Resources.resources
+C:\Users\Bus209\Documents\htdocs\WinForm47\Entidades\obj\Debug\Entidades.vbproj.GenerateResource.cache
+C:\Users\Bus209\Documents\htdocs\WinForm47\Entidades\obj\Debug\Entidades.dll
+C:\Users\Bus209\Documents\htdocs\WinForm47\Entidades\obj\Debug\Entidades.xml
+C:\Users\Bus209\Documents\htdocs\WinForm47\Entidades\obj\Debug\Entidades.pdb

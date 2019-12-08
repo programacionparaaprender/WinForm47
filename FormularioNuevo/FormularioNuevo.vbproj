@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C86BDFDF-25D0-4599-9ACC-E3107B430E27}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>FormularioNuevo.VentanaModernista</StartupObject>
+    <RootNamespace>FormularioNuevo</RootNamespace>
+    <AssemblyName>FormularioNuevo</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>FormularioNuevo.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>FormularioNuevo.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1.designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBackgroudworker.Designer.vb">
+      <DependentUpon>frmBackgroudworker.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmBackgroudworker.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmContrato.Designer.vb">
+      <DependentUpon>frmContrato.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmContrato.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDialogoPrueba.Designer.vb">
+      <DependentUpon>frmDialogoPrueba.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDialogoPrueba.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDialogos.Designer.vb">
+      <DependentUpon>frmDialogos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDialogos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLicencia.Designer.vb">
+      <DependentUpon>frmLicencia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLicencia.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTiempoReal.Designer.vb">
+      <DependentUpon>frmTiempoReal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTiempoReal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTreeView.Designer.vb">
+      <DependentUpon>frmTreeView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTreeView.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm1.Designer.vb">
+      <DependentUpon>LoginForm1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuTooltipStrip.Designer.vb">
+      <DependentUpon>MenuTooltipStrip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MenuTooltipStrip.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion1.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Presentacion1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentacion2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Presentacion2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="QuirkyBookProjectDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuirkyBookProjectDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaModernista.Designer.vb">
+      <DependentUpon>VentanaModernista.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaModernista.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBackgroudworker.resx">
+      <DependentUpon>frmBackgroudworker.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmContrato.resx">
+      <DependentUpon>frmContrato.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDialogoPrueba.resx">
+      <DependentUpon>frmDialogoPrueba.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDialogos.resx">
+      <DependentUpon>frmDialogos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLicencia.resx">
+      <DependentUpon>frmLicencia.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTiempoReal.resx">
+      <DependentUpon>frmTiempoReal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTreeView.resx">
+      <DependentUpon>frmTreeView.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm1.resx">
+      <DependentUpon>LoginForm1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuTooltipStrip.resx">
+      <DependentUpon>MenuTooltipStrip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Presentacion1.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Presentacion2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentanaModernista.resx">
+      <DependentUpon>VentanaModernista.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="QuirkyBookProjectDataSet.xsc">
+      <DependentUpon>QuirkyBookProjectDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QuirkyBookProjectDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuirkyBookProjectDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuirkyBookProjectDataSet.xss">
+      <DependentUpon>QuirkyBookProjectDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\icons8-icons8-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-delete-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entidades\Entidades.vbproj">
+      <Project>{87ec779f-d08f-4408-85dc-655ddf0b0481}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

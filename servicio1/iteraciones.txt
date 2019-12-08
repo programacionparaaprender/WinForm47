@@ -1,0 +1,23 @@
+
+Curso de servicios en windows
+----------------------------
+https://www.youtube.com/watch?v=b60b5vmXSJ4
+
+
+cd Windows\Microsoft.NET\Framework\v4.0.30319\
+
+InstallUtil.exe d:\Miservicio\servicio.exe
+
+
+Servicios
+https://docs.microsoft.com/en-us/dotnet/api/system.timers.elapsedeventhandler?view=netframework-4.8
+
+
+https://docs.microsoft.com/es-es/dotnet/framework/windows-services/how-to-install-and-uninstall-services
+Nueva forma usando powershell
+powershell
+New-Service -Name "YourServiceName" -BinaryPathName <yourproject>.exe
+
+Remove-Service -Name "YourServiceName"
+
+sc.exe delete "YourServiceName"

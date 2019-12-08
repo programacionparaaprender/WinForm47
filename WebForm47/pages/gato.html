@@ -1,0 +1,15 @@
+﻿<div ng-app="AppGatos" class="row jumbotron text-center">
+    <div ng-controller="ControladorGatos">
+        <div>Pulsa el botón para recuperar el listado de gatos:</div>
+        <div>
+            <button ng-click="obtenerGatos()">Obtener listado</button>
+        </div>
+        <div>
+            <ul>
+                <li ng-repeat="gato in gatos">
+                    <strong>{{gato.nombre}}</strong> - {{ gato.edad }} años ({{ gato.sexo }})
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
