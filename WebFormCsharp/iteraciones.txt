@@ -2,4 +2,9 @@
 
 https://www.youtube.com/watch?v=ar0cKjjgfb8&feature=emb_title
 
+como con javascript
+http://www.dotnetawesome.com/2013/09/checkbox-inside-gridview-and-handle-its.html
 
+https://docs.microsoft.com/es-es/dotnet/api/system.web.ui.webcontrols.menu.menuitemclick?view=netframework-4.8
+
+https://social.technet.microsoft.com/wiki/contents/articles/11697.using-method-type-postget-in-asp-net-web-form.aspx

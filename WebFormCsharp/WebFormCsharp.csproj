@@ -12,7 +12,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WebFormCsharp</RootNamespace>
     <AssemblyName>WebFormCsharp</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44370</IISExpressSSLPort>
@@ -50,9 +50,9 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -60,10 +60,17 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Global.asax" />
     <Content Include="iteraciones.txt" />
+    <None Include="packages.config" />
+    <None Include="Scripts\jquery-1.7.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.7.1.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <Content Include="wfrmCapturaGet.aspx" />
     <Content Include="wfrmCargaDispositivo.aspx" />
     <Content Include="wfrmDispositivo.aspx" />
     <Content Include="PaginaMaestra.Master" />
+    <Content Include="wfrmNuevoGridView.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -76,6 +83,16 @@
     <Content Include="wfrmGridView.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="wfrmCapturaGet.aspx.cs">
+      <DependentUpon>wfrmCapturaGet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfrmCapturaGet.aspx.designer.cs">
+      <DependentUpon>wfrmCapturaGet.aspx</DependentUpon>
+    </Compile>
     <Compile Include="wfrmCargaDispositivo.aspx.cs">
       <DependentUpon>wfrmCargaDispositivo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -105,8 +122,17 @@
     <Compile Include="wfrmGridView.aspx.designer.cs">
       <DependentUpon>wfrmGridView.aspx</DependentUpon>
     </Compile>
+    <Compile Include="wfrmNuevoGridView.aspx.cs">
+      <DependentUpon>wfrmNuevoGridView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfrmNuevoGridView.aspx.designer.cs">
+      <DependentUpon>wfrmNuevoGridView.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="images\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

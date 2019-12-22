@@ -49,4 +49,25 @@
 
         End If
     End Sub
+
+    Protected Sub GridView2_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles GridView2.RowCommand
+        Select Case (e.CommandName)
+            Case "Edit"
+
+            Case "chkbocCheck"
+                For Each row As GridViewRow In GridView2.Rows
+
+                    Dim chkrow As CheckBox = TryCast(row.Cells(0).FindControl("chbItem"), CheckBox)
+                    If (chkrow.Checked) Then
+
+                        Dim ID As String = row.Cells(1).Text
+                        Dim name As String = row.Cells(2).Text
+                    End If
+                Next
+
+                Dim cadena As String = e.CommandArgument.ToString()
+                ClientScript.RegisterStartupScript(Me.GetType(), "alert", "alert('Name');", True)
+        End Select
+
+    End Sub
 End Class

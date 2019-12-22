@@ -36,6 +36,35 @@
                 <asp:BoundField DataField="Valor2" HeaderText="Valor2" />
             </Columns>
         </asp:GridView>
+
+        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSource1">
+            <Columns>
+                <asp:TemplateField>
+                    <HeaderTemplate>
+                        <asp:CheckBox ID="chbTodos" runat="server" />
+                    </HeaderTemplate>
+                    <ItemTemplate>
+                        <asp:CheckBox 
+                            CommandArgument="<%# Container.DataItemIndex %>"
+                            CommandName="chkbocCheck"
+                            ID="chbItem" 
+                            runat="server" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:Button type="button" Text="Select" runat="server" CommandName="Select" CommandArgument="<%# Container.DataItemIndex %>" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
+                <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+            </Columns>
+        </asp:GridView>
+        <asp:DataGrid ID="DataGrid1" runat="server" DataSourceID="SqlDataSource1">
+        </asp:DataGrid>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DBConnectionString %>" SelectCommand="SELECT * FROM [Books]"></asp:SqlDataSource>
+        <br />
+
     </form>
 </body>
 </html>
