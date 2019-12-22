@@ -1,0 +1,11 @@
+C:\Users\Bus209\Documents\htdocs\WinForm47\FrmReportViewer\bin\Debug\netcoreapp3.1\FrmReportViewer.exe
+C:\Users\Bus209\Documents\htdocs\WinForm47\FrmReportViewer\bin\Debug\netcoreapp3.1\FrmReportViewer.deps.json
+C:\Users\Bus209\Documents\htdocs\WinForm47\FrmReportViewer\bin\Debug\netcoreapp3.1\FrmReportViewer.runtimeconfig.json
+C:\Users\Bus209\Documents\htdocs\WinForm47\FrmReportViewer\bin\Debug\netcoreapp3.1\FrmReportViewer.runtimeconfig.dev.json
+C:\Users\Bus209\Documents\htdocs\WinForm47\FrmReportViewer\bin\Debug\netcoreapp3.1\FrmReportViewer.dll
+C:\Users\Bus209\Documents\htdocs\WinForm47\FrmReportViewer\bin\Debug\netcoreapp3.1\FrmReportViewer.pdb
+C:\Users\Bus209\Documents\htdocs\WinForm47\FrmReportViewer\obj\Debug\netcoreapp3.1\FrmReportViewer.csprojAssemblyReference.cache
+C:\Users\Bus209\Documents\htdocs\WinForm47\FrmReportViewer\obj\Debug\netcoreapp3.1\FrmReportViewer.AssemblyInfoInputs.cache
+C:\Users\Bus209\Documents\htdocs\WinForm47\FrmReportViewer\obj\Debug\netcoreapp3.1\FrmReportViewer.AssemblyInfo.cs
+C:\Users\Bus209\Documents\htdocs\WinForm47\FrmReportViewer\obj\Debug\netcoreapp3.1\FrmReportViewer.dll
+C:\Users\Bus209\Documents\htdocs\WinForm47\FrmReportViewer\obj\Debug\netcoreapp3.1\FrmReportViewer.pdb
