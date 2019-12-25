@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
+using System.Globalization;
 
 
 namespace WebFormCsharp
@@ -15,7 +16,12 @@ namespace WebFormCsharp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
+            //foreach (CultureInfo ci in CultureInfo.GetCultures(CultureTypes.AllCultures))
+            //{
+            //    Response.Write(ci.Name + " => " + ci.DisplayName + "<br />");
+            //}
+            //return;
             string cs = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
             using (SqlConnection con = new SqlConnection(cs)) 
             {
@@ -154,6 +160,50 @@ namespace WebFormCsharp
 
         }
 
-        
+        protected void GridView7_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            //DataFormatString="{0:c}"
+            //evento se dispara al llenarse el gridview
+            if (e.Row.RowType == DataControlRowType.Header)
+            {
+                e.Row.Cells[8].Visible = false;
+            }
+            else if (e.Row.RowType == DataControlRowType.Footer)
+            {
+                e.Row.Cells[8].Visible = false;
+            }
+            else
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                decimal salary;
+                //salary = Convert.ToDecimal(e.Row.Cells[4].Text);
+                salary = Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "AnnualSalary"));
+                if (salary >  30000)
+                {
+                    e.Row.BackColor = System.Drawing.Color.Red;
+                    e.Row.ForeColor = System.Drawing.Color.White;
+                }
+                string Culture = e.Row.Cells[8].Text;
+                string formattedString1 = string.Format(new System.Globalization.CultureInfo(Culture), "{0:c}", salary);
+                e.Row.Cells[4].Text = formattedString1;
+                e.Row.Cells[8].Visible = false;
+                //switch (e.Row.Cells[7].Text)
+                //{
+                //    case "VE":
+                //        string formattedString1 = string.Format(new System.Globalization.CultureInfo("es-VE"), "{0:c}", salary);
+                //        e.Row.Cells[4].Text = formattedString1;
+                //        //ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Name: Luis');", true);
+                //        break;
+                //    case "PE":
+                //        string formattedString2 = string.Format(new System.Globalization.CultureInfo("es-PE"), "{0:c}", salary);
+                //        e.Row.Cells[4].Text = formattedString2;//ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Name: Luis');", true);
+                //        break;
+                //    case "ES":
+                //        string formattedString3 = string.Format(new System.Globalization.CultureInfo("es-ES"), "{0:c}", salary);
+                //        e.Row.Cells[4].Text = formattedString3;//ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Name: Luis');", true);
+                //        break;
+                //}
+            }
+        }
     }
 }

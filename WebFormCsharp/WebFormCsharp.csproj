@@ -60,12 +60,16 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\Countries.xml" />
+    <Content Include="Data\Countries2.xml" />
+    <Content Include="Data\CountriesXSLT.xslt" />
     <Content Include="Global.asax" />
     <Content Include="iteraciones.txt" />
     <None Include="packages.config" />
     <None Include="Scripts\jquery-1.7.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <Content Include="Styless\Site.css" />
     <Content Include="wfrmCapturaGet.aspx" />
     <Content Include="wfrmCargaDispositivo.aspx" />
     <Content Include="wfrmDispositivo.aspx" />
@@ -86,6 +90,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="ProductDataAccessLayer.cs" />
     <Compile Include="wfrmCapturaGet.aspx.cs">
       <DependentUpon>wfrmCapturaGet.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -131,6 +136,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Code\" />
+    <Folder Include="App_Data\" />
     <Folder Include="images\" />
   </ItemGroup>
   <PropertyGroup>

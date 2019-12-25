@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Countries>
+  <Country Id="101" Name="India" Continent="Asia" />
+  <Country Id="102" Name="China" Continent="Asia" />
+</Countries>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Countries2>
+  <Country>
+    <Id>101</Id>
+    <Name>India</Name>
+    <Continent>Asia</Continent>
+  </Country>
+  <Country>
+    <Id>102</Id>
+    <Name>China</Name>
+    <Continent>Asia</Continent>
+  </Country>
+</Countries2>
