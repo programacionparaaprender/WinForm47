@@ -66,6 +66,62 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    
+    
+    <asp:GridView 
+        ID="GridView10" 
+        runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSource5" OnRowDataBound="GridView10_RowDataBound"> 
+        <Columns>
+            <asp:CommandField ButtonType="Link" ShowDeleteButton="True" />
+            <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
+            <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
+            <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
+            <asp:BoundField DataField="DateOfBirth" HeaderText="DateOfBirth" SortExpression="DateOfBirth" />
+            <asp:BoundField DataField="AnnualSalary" HeaderText="AnnualSalary" SortExpression="AnnualSalary" />
+            <asp:BoundField DataField="Gender" HeaderText="Gender" SortExpression="Gender" />
+            <asp:BoundField DataField="DepartmentName" HeaderText="DepartmentName" SortExpression="DepartmentName" />
+            <asp:BoundField DataField="Country" HeaderText="Country" SortExpression="Country" />
+            <asp:BoundField DataField="Culture" HeaderText="Culture" SortExpression="Culture" />
+            <asp:BoundField DataField="DepartmentId" HeaderText="DepartmentId" SortExpression="DepartmentId" />
+        </Columns>
+        <HeaderStyle BackColor="#993333" ForeColor="White" />
+        <RowStyle BackColor="#FF9900" ForeColor="#993333" />
+    </asp:GridView>
+    
+    
+
+    
+    <asp:ObjectDataSource runat="server" ID="ObjectDepartments" SelectMethod="GetAllDepartments" TypeName="WebFormCsharp.App_Code.DepartmentDataAccessLayer"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="ObjectEmployees" runat="server" SelectMethod="GetAllEmplyees" TypeName="WebFormCsharp.App_Code.EmployeesDataAccessLayer">
+        <SelectParameters>
+            <asp:ControlParameter ControlID="DropDownList3" DefaultValue="1" Name="DepartmentId" PropertyName="SelectedValue" Type="Int32" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+    <asp:SqlDataSource 
+        ID="SqlDataSource5" 
+        runat="server" 
+        ConnectionString="<%$ ConnectionStrings:DBConnectionString %>" 
+        DeleteCommand="DELETE FROM [Employees] WHERE [Id] = @Id" 
+        SelectCommand="SELECT * FROM [Employees]">
+        <DeleteParameters>
+            <asp:Parameter Name="Id" Type="Int32" />
+        </DeleteParameters>
+    </asp:SqlDataSource>
+    <asp:DropDownList ID="DropDownList3" runat="server" AutoPostBack="True" DataSourceID="ObjectDepartments" DataTextField="DepartmentName" DataValueField="DepartmentId"></asp:DropDownList>
+    <asp:GridView 
+        ID="GridView9" 
+        runat="server" 
+        AutoGenerateColumns="False" 
+        DataSourceID="ObjectEmployees" AllowPaging="True">
+        <Columns>
+            <asp:BoundField DataField="EmployeesId" HeaderText="EmployeesId" SortExpression="EmployeesId" />
+            <asp:BoundField DataField="EmployeeName" HeaderText="EmployeeName" SortExpression="EmployeeName" />
+            <asp:BoundField DataField="DepartmentName" HeaderText="DepartmentName" SortExpression="DepartmentName" />
+        </Columns>
+        <HeaderStyle BackColor="#993333" ForeColor="White" />
+        <RowStyle BackColor="#FF9900" ForeColor="#993333" />
+    </asp:GridView>
+    
     <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource3" DataTextField="Name" DataValueField="DepartmentId"></asp:DropDownList>
     
     <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:DBConnectionString %>" SelectCommand="spGetEmployeesByDepartmentId" SelectCommandType="StoredProcedure">
@@ -73,10 +129,10 @@
             <asp:ControlParameter ControlID="DropDownList2" DefaultValue="1" Name="DepartmentId" PropertyName="SelectedValue" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
+    
     <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:DBConnectionString %>" SelectCommand="sp_GetDepartment" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
 
-
-
+    
     <asp:GridView ID="GridView8" runat="server" AutoGenerateColumns="False" DataKeyNames="EmployeeId,DepartmentId" DataSourceID="SqlDataSource4">
         <Columns>
             <asp:BoundField DataField="EmployeeId" HeaderText="EmployeeId" InsertVisible="False" ReadOnly="True" SortExpression="EmployeeId" />
@@ -86,6 +142,7 @@
                 <HeaderTemplate>
 
                 </HeaderTemplate>
+                
                 <EditItemTemplate>
                     <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("DepartmentName") %>'></asp:TextBox>
                 </EditItemTemplate>

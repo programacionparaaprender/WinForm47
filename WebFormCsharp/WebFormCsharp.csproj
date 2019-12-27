@@ -87,6 +87,8 @@
     <Content Include="wfrmGridView.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Code\DepartmentDataAccessLayer.cs" />
+    <Content Include="App_Code\EmployeesDataAccessLayer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -136,7 +138,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
     <Folder Include="images\" />
   </ItemGroup>

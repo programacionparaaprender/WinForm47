@@ -205,5 +205,17 @@ namespace WebFormCsharp
                 //}
             }
         }
+
+        protected void GridView10_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                Control control = e.Row.Cells[0].Controls[0];
+                if (control is LinkButton)
+                {
+                    ((LinkButton)control).OnClientClick = "return confirm('Are you want to delete? this cannot be undone.')";
+                }
+            }
+        }
     }
 }
