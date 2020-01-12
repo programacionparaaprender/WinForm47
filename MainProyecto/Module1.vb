@@ -14,6 +14,9 @@ Module Module1
         Dim Login As New LoginForm1
         'Login.ShowDialog()
         If (Login.condicion = 1) Then
+            Application.Run(New frmDataGridViewOracle())
+
+        ElseIf (Login.condicion = 1) Then
             Application.Run(New frmDialogos())
 
         ElseIf (Login.condicion = 8) Then

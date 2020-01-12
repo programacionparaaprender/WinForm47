@@ -1,0 +1,287 @@
+﻿Imports System.Collections.Specialized
+Imports System.IO
+Imports System.Web
+Imports System.Globalization
+
+''' <summary>
+''' Parser for IIS log files.
+''' </summary>
+''' <remarks>See http://www.w3.org/TR/WD-logfile.html for log format.</remarks>
+Public Class LogParser
+    ' Index of date field, or -1 if the date field is not present.
+    Private m_dateFieldIndex As Integer
+    ' Index of time field, or -1 if the time field is not present.
+    Private m_timeFieldIndex As Integer
+    ' Index of cs-uri-stem field, or -1 if cs-uri-stem is not present.
+    Private m_uriStemFieldIndex As Integer
+    ' Index of status field, or -1 if status field is not present.
+    Private m_statusFieldIndex As Integer
+    ' The name of the log file being parsed.
+    Private m_logFileName As String
+    ' The date specified by the date directive.
+    Private m_dateString As String
+    ' The time specified by the date directive.
+    Private m_timeString As String
+    ' Whether the software directive was found.
+    Private m_foundSoftwareDirective As Boolean
+    ' Whether the fields directive was found.
+    Private m_foundFieldsDirective As Boolean
+    ' The number of fields available.
+    Private m_fieldCount As Integer = -1
+    ' A list of filename extensions that should be ignored.
+    Private m_ignoredExtensions As New StringCollection
+
+    ''' <summary>
+    ''' Specifies list of filename extensions to ignore.
+    ''' </summary>
+    ''' <value>Filename extensions to ignore.</value>
+    ''' <remarks></remarks>
+    Public ReadOnly Property IgnoredExtensions() As StringCollection
+        Get
+            Return m_ignoredExtensions
+        End Get
+    End Property
+
+    Public Sub SetIgnoredExtensions(ByVal extensions As String())
+        Me.m_ignoredExtensions.Clear()
+        Me.m_ignoredExtensions.AddRange(extensions)
+    End Sub
+
+    ''' <summary>
+    ''' Parses the fields directive.
+    ''' </summary>
+    ''' <param name="line">The line that contains the fields directive.</param>
+    ''' <remarks>Not all log files contain all fields, and fields may not be
+    ''' in a pre-defined order. The log file contains a directive that lists
+    ''' the fields present, and the order in which the fields appear. This 
+    ''' method is used for extracting the field order from that line.</remarks>
+    Private Sub ParseFieldsDirective(ByVal line As String)
+        ' Initialize all index positions to -1 
+        ' which means the corresponding field is not available.
+        m_dateFieldIndex = -1
+        m_timeFieldIndex = -1
+        m_uriStemFieldIndex = -1
+        m_statusFieldIndex = -1
+        ' Split the directive into words
+        Dim words As String() = line.Split(New Char() {" "}, StringSplitOptions.RemoveEmptyEntries)
+        If words.Length < 2 Then
+            Throw New LogParserException( _
+                     String.Format(CultureInfo.CurrentCulture, My.Resources.InvalidFieldsDirective, m_logFileName))
+        End If
+        ' Since the first word is #Fields: the number of fields is one less than 
+        ' the number of words.
+        m_fieldCount = words.Length - 1
+        ' Loop through the field names and remember the indexes of the fields.
+        Dim i As Integer
+        For i = 1 To words.Length - 1
+            Select Case words(i)
+                Case "date"
+                    m_dateFieldIndex = i - 1
+                Case "time"
+                    m_timeFieldIndex = i - 1
+                Case "cs-uri-stem"
+                    m_uriStemFieldIndex = i - 1
+                Case "sc-status"
+                    m_statusFieldIndex = i - 1
+            End Select
+        Next
+        ' Make sure the cs-uri-stem field is present.
+        If m_uriStemFieldIndex = -1 Then
+            Throw New LogParserException(My.Resources.MissingUriStem)
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Parses a directive.
+    ''' </summary>
+    ''' <param name="directive">The directive string.</param>
+    ''' <remarks></remarks>
+    Private Sub ParseDirective(ByVal directive As String)
+        If directive.StartsWith("#Fields:") Then
+            ParseFieldsDirective(directive)
+            ' Remember the fact that the fields directive was found.
+            ' The log file is not valid if a fields directive was not found.
+            m_foundFieldsDirective = True
+        ElseIf directive.StartsWith("#Date:") Then
+            ' The date directive supplies the date and time at which the entry was added.
+            Dim fields As String() = directive.Split(New Char() {" "}, StringSplitOptions.RemoveEmptyEntries)
+            If fields.Length < 3 Then
+                Throw New LogParserException(My.Resources.InvalidDateDirective)
+            End If
+            m_dateString = fields(1)
+            m_timeString = fields(2)
+        ElseIf directive.StartsWith("#Software:") Then
+            ' The software directive identifies the software which generated the log file.
+            ' Since we have only tested this program using log files generated by IIS make
+            ' sure the log file was generated by IIS.
+            If directive.IndexOf("Internet Information Services") <> -1 Then
+                ' Remember the fact that a valid software directive was found.
+                ' The log file is not valid without it.
+                m_foundSoftwareDirective = True
+            End If
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Parses a log file entry.
+    ''' </summary>
+    ''' <param name="line">The log file line to parse.</param>
+    ''' <returns>A LogFileEntry object if line was parsed successfully, or Nothing otherwise.</returns>
+    ''' <remarks></remarks>
+    Private Function ParseLogEntry(ByVal line As String) As LogFileEntry
+        ' Make sure we found a software directive and a fields directive. 
+        If (m_foundSoftwareDirective = False) Or (m_foundFieldsDirective = False) Then
+            Throw New LogParserException(String.Format(CultureInfo.CurrentCulture, My.Resources.InvalidLogFile, m_logFileName))
+        End If
+
+        ' Split the line into fields.
+        Dim fields As String() = line.Split(New Char() {" "}, StringSplitOptions.RemoveEmptyEntries)
+        ' Make sure it has the expected number of fields.
+        If fields.Length <> m_fieldCount Then
+            Throw New LogParserException(String.Format(CultureInfo.CurrentCulture, My.Resources.InvalidLogEntry, m_logFileName))
+        End If
+
+        ' Get the value of the page field if present.
+        Dim page As String
+        If m_uriStemFieldIndex = -1 Then
+            page = ""
+        Else
+            page = HttpUtility.UrlDecode(fields(m_uriStemFieldIndex))
+        End If
+
+        ' If the file name ends with an extension that should be ignored then return nothing.
+        Dim dotIndex = page.LastIndexOf(".")
+        If dotIndex <> -1 Then
+            Dim extension = page.Substring(dotIndex)
+            If Me.IgnoredExtensions.IndexOf(extension.ToLower()) <> -1 Then
+                Return Nothing
+            End If
+        End If
+
+        ' Get the value of the status field if present.
+        Dim status As Integer = -1
+        If m_statusFieldIndex <> -1 Then
+            If Not Integer.TryParse(fields(m_statusFieldIndex), status) Then
+                Throw New LogParserException(String.Format(CultureInfo.CurrentCulture, My.Resources.InvalidStatusValue, m_logFileName))
+            End If
+        End If
+
+        ' Get the value of date field if present.
+        Dim dateString As String
+        If m_dateFieldIndex = -1 Then
+            ' No date field present. Use the date specified by the date directive.
+            dateString = m_dateString
+        Else
+            dateString = fields(m_dateFieldIndex)
+        End If
+
+        ' Get the value of time field if present.
+        Dim timeString As String
+        If m_timeFieldIndex = -1 Then
+            ' No time field present. Use the time specified by the time directive.
+            timeString = m_timeString
+        Else
+            timeString = fields(m_timeFieldIndex)
+        End If
+
+        ' Make sure we have a valid date and time.
+        If dateString Is Nothing Or timeString Is Nothing Then
+            Throw New LogParserException(String.Format(CultureInfo.CurrentCulture, My.Resources.MissingAccessTime, m_logFileName))
+        End If
+        ' Concatenate the date and time fields in order to parse it.
+        Dim dateTimeString As String = dateString & " " & timeString
+        ' The access time in the log file is in UTC.
+        Dim accessTimeUTC As Date
+        Try
+            ' Parse the date and time using the format specified in the log format specification.
+            accessTimeUTC = Date.ParseExact(dateTimeString, "yyyy-MM-dd HH:mm:ss", _
+                      CultureInfo.InvariantCulture.DateTimeFormat)
+        Catch ex As FormatException
+            ' Failed to parse the date, so throw a log parser exception.
+            Throw New LogParserException(String.Format(CultureInfo.CurrentCulture, My.Resources.InvalidDateOrTime, m_logFileName), ex)
+        End Try
+        ' Convert the time from UTC to current time zone.
+        Dim accessTime As Date = accessTimeUTC.ToLocalTime
+
+        ' Return a new LogFileEntry object.
+        Return New LogFileEntry(accessTime, page, status)
+    End Function
+
+    ''' <summary>
+    ''' Parses a log file and returns its contents.
+    ''' </summary>
+    ''' <param name="logFilename">Name of log file.</param>
+    ''' <returns>A collection of LogFileEntry objects.</returns>
+    ''' <remarks></remarks>
+    Public Function Parse(ByVal logFileName As String) As LogFileEntryCollection
+        ' A collection representing all valid entries in the log file.
+        Dim logFileEntries As New LogFileEntryCollection
+
+        ' Remember the name of the log file. This is needed later to generate error messages.
+        m_logFileName = logFileName
+
+        ' Read the contents of the file line by line and parse each line.
+        Using reader As New StreamReader(logFileName)
+            Do
+                Dim line As String = reader.ReadLine()
+                ' If there are no more lines then exit the loop.
+                If (line Is Nothing) Then Exit Do
+                ' If the first character is a 0 byte then exit the loop. This may happen if IIS
+                ' is still writing to the log file.
+                If (line.Length > 0) AndAlso (AscW(line.Chars(0)) = 0) Then Exit Do
+                ' If the first character is a # then this is a directive otherwise it is an entry.
+                If line.StartsWith("#") Then
+                    ParseDirective(line)
+                Else
+                    Dim access As LogFileEntry = ParseLogEntry(line)
+                    ' If the line was successfully parsed add the LogFileEntry object to a collection.
+                    If access IsNot Nothing Then
+                        logFileEntries.Add(access)
+                    End If
+                End If
+            Loop
+        End Using
+
+        ' Return the collection of LogFileEntry objects.
+        Return logFileEntries
+    End Function
+
+    ''' <summary>
+    ''' Parses supplied log file.
+    ''' </summary>
+    ''' <param name="logFile">Name of file to parse.</param>
+    ''' <param name="extensionsToIgnore">A list of filename extensions to ignore.</param>
+    ''' <returns>Web accesses logged in the file.</returns>
+    ''' <remarks></remarks>
+    Public Shared Function ParseLogFile(ByVal logFile As String, ByVal extensionsToIgnore As String()) As LogFileEntryCollection
+        Dim parser As New LogParser
+        parser.SetIgnoredExtensions(extensionsToIgnore)
+        Return parser.Parse(logFile)
+    End Function
+
+    ''' <summary>
+    ''' Parses all *.log files in supplied folder.
+    ''' </summary>
+    ''' <param name="folderPath">Path to folder containing log files.</param>
+    ''' <param name="extensionsToIgnore">A list of filename extensions to ingore.</param>
+    ''' <returns>Web access logged in log files present in supplied folder.</returns>
+    ''' <remarks></remarks>
+    Public Shared Function ParseLogFileFolder(ByVal folderPath As String, ByVal extensionsToIgnore As String()) As LogFileEntryCollection
+        Dim parser As New LogParser
+        parser.SetIgnoredExtensions(extensionsToIgnore)
+        Dim logFileEntries As New LogFileEntryCollection
+        Dim di As New DirectoryInfo(folderPath)
+        ' Get a list of all log files in the supplied folder.
+        Dim files As FileInfo() = di.GetFiles("*.log")
+        ' If no log files were found then indicate that fact.
+        If files.Length = 0 Then
+            Throw New LogParserException(String.Format(CultureInfo.CurrentCulture, My.Resources.NoLogFiles, folderPath))
+        End If
+        ' Parse each file in the list and build a collection of LogFileEntry objects.
+        Dim fi As FileInfo
+        For Each fi In files
+            logFileEntries = LogParser.ParseLogFile(fi.FullName, extensionsToIgnore)
+        Next
+        Return logFileEntries
+    End Function
+End Class

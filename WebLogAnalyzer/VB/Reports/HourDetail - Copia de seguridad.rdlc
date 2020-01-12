@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="DummyDataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:DataSourceID>fef13ce2-8354-4d5e-965f-240d3fedf190</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <ReportParameters>
+    <ReportParameter Name="Hour">
+      <DataType>Integer</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Hour</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <rd:SnapToGrid>false</rd:SnapToGrid>
+  <Body>
+    <ReportItems>
+      <Textbox Name="textbox1">
+        <Width>5.9375in</Width>
+        <rd:DefaultName>textbox1</rd:DefaultName>
+        <Top>0.61458in</Top>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <FontFamily>Lucida Sans Unicode</FontFamily>
+          <PaddingTop>2pt</PaddingTop>
+          <FontSize>9pt</FontSize>
+          <PaddingBottom>2pt</PaddingBottom>
+          <PaddingRight>2pt</PaddingRight>
+        </Style>
+        <Left>0.0625in</Left>
+        <CanGrow>true</CanGrow>
+        <Height>0.21875in</Height>
+        <Value>Most popular pages</Value>
+      </Textbox>
+      <Rectangle Name="rectangle2">
+        <ReportItems>
+          <Textbox Name="textbox5">
+            <Width>6.82292in</Width>
+            <Top>0.03125in</Top>
+            <Style>
+              <FontFamily>Lucida Sans Unicode</FontFamily>
+              <FontSize>8pt</FontSize>
+              <BackgroundColor>#6b5f4c</BackgroundColor>
+              <Color>White</Color>
+            </Style>
+            <Left>0.07291in</Left>
+            <CanGrow>true</CanGrow>
+            <Value>="Hour: " &amp; Parameters!Hour.Value</Value>
+          </Textbox>
+        </ReportItems>
+        <Top>0.31771in</Top>
+        <ZIndex>3</ZIndex>
+        <Width>7.09375in</Width>
+        <Style>
+          <BackgroundColor>#6b5f4c</BackgroundColor>
+        </Style>
+        <Left>0.0625in</Left>
+        <Height>0.23958in</Height>
+      </Rectangle>
+      <Rectangle Name="rectangle3">
+        <ReportItems>
+          <Textbox Name="hitsByHourLabel">
+            <Width>6.82292in</Width>
+            <Top>0.02083in</Top>
+            <ToggleImage>
+              <InitialState>true</InitialState>
+            </ToggleImage>
+            <Style>
+              <FontWeight>700</FontWeight>
+              <FontFamily>Lucida Sans Unicode</FontFamily>
+              <BackgroundColor>#352f26</BackgroundColor>
+              <Color>White</Color>
+            </Style>
+            <Left>0.08333in</Left>
+            <CanGrow>true</CanGrow>
+            <Height>0.1875in</Height>
+            <Value>Hour Detail</Value>
+          </Textbox>
+        </ReportItems>
+        <Top>0.04688in</Top>
+        <ZIndex>2</ZIndex>
+        <Width>7.09375in</Width>
+        <Style>
+          <BackgroundColor>#352f26</BackgroundColor>
+        </Style>
+        <Left>0.0625in</Left>
+        <Height>0.26042in</Height>
+      </Rectangle>
+      <Rectangle Name="rectangle4">
+        <Top>0.30729in</Top>
+        <ZIndex>1</ZIndex>
+        <Width>7.09375in</Width>
+        <Style>
+          <BackgroundColor>White</BackgroundColor>
+        </Style>
+        <Left>0.0625in</Left>
+        <Height>0.07292in</Height>
+      </Rectangle>
+      <Table Name="table1">
+        <DataSetName>WebLogAnalyzer_LogFileEntry</DataSetName>
+        <TableColumns>
+          <TableColumn>
+            <Width>5.79167in</Width>
+            <FixedHeader>false</FixedHeader>
+          </TableColumn>
+          <TableColumn>
+            <Width>1.30208in</Width>
+            <FixedHeader>false</FixedHeader>
+          </TableColumn>
+        </TableColumns>
+        <Filters>
+          <Filter>
+            <FilterExpression>=Fields!AccessTime.Value.Hour</FilterExpression>
+            <Operator>Equal</Operator>
+            <FilterValues>
+              <FilterValue>=Parameters!Hour.Value</FilterValue>
+            </FilterValues>
+          </Filter>
+        </Filters>
+        <Top>0.89583in</Top>
+        <Width>7.09375in</Width>
+        <Details>
+          <TableRows>
+            <TableRow>
+              <Height>0.21875in</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Page">
+                      <rd:DefaultName>Page</rd:DefaultName>
+                      <ZIndex>1</ZIndex>
+                      <Action>
+                        <Drillthrough>
+                          <ReportName>WebLogAnalyzer.PageDetail.rdlc</ReportName>
+                          <Parameters>
+                            <Parameter Name="Page">
+                              <Value>=Fields!Page.Value</Value>
+                            </Parameter>
+                          </Parameters>
+                        </Drillthrough>
+                      </Action>
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <FontFamily>Tahoma</FontFamily>
+                        <PaddingTop>2pt</PaddingTop>
+                        <FontSize>8pt</FontSize>
+                        <BorderStyle>
+                          <Right>Solid</Right>
+                        </BorderStyle>
+                        <BackgroundColor>=iif(RunningValue(Fields!Page.Value,CountDistinct,Nothing) mod 2, "White", "#FFF6E8")</BackgroundColor>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!Page.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox6">
+                      <rd:DefaultName>textbox6</rd:DefaultName>
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <FontFamily>Tahoma</FontFamily>
+                        <PaddingTop>2pt</PaddingTop>
+                        <FontSize>8pt</FontSize>
+                        <BorderStyle>
+                          <Left>Solid</Left>
+                        </BorderStyle>
+                        <BackgroundColor>=iif(RunningValue(Fields!Page.Value,CountDistinct,Nothing) mod 2, "White", "#FFF6E8")</BackgroundColor>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=CountRows()</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+          <Grouping Name="table1_Details_Group">
+            <GroupExpressions>
+              <GroupExpression>=Fields!Page.Value</GroupExpression>
+            </GroupExpressions>
+            <Filters>
+              <Filter>
+                <FilterExpression>=CountRows()</FilterExpression>
+                <Operator>TopN</Operator>
+                <FilterValues>
+                  <FilterValue>=10</FilterValue>
+                </FilterValues>
+              </Filter>
+            </Filters>
+          </Grouping>
+          <Sorting>
+            <SortBy>
+              <SortExpression>=CountRows()</SortExpression>
+              <Direction>Descending</Direction>
+            </SortBy>
+          </Sorting>
+        </Details>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <BackgroundColor>White</BackgroundColor>
+        </Style>
+        <Header>
+          <TableRows>
+            <TableRow>
+              <Height>0.25in</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox2">
+                      <rd:DefaultName>textbox2</rd:DefaultName>
+                      <ZIndex>3</ZIndex>
+                      <Style>
+                        <FontWeight>700</FontWeight>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <FontFamily>Tahoma</FontFamily>
+                        <BorderColor>
+                          <Right>White</Right>
+                        </BorderColor>
+                        <PaddingTop>2pt</PaddingTop>
+                        <FontSize>8pt</FontSize>
+                        <BorderStyle>
+                          <Right>Solid</Right>
+                        </BorderStyle>
+                        <BackgroundColor>#352f26</BackgroundColor>
+                        <Color>White</Color>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>Page</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox3">
+                      <rd:DefaultName>textbox3</rd:DefaultName>
+                      <ZIndex>2</ZIndex>
+                      <Style>
+                        <FontWeight>700</FontWeight>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <FontFamily>Tahoma</FontFamily>
+                        <BorderColor>
+                          <Left>White</Left>
+                        </BorderColor>
+                        <PaddingTop>2pt</PaddingTop>
+                        <FontSize>8pt</FontSize>
+                        <BorderStyle>
+                          <Left>Solid</Left>
+                        </BorderStyle>
+                        <BackgroundColor>#352f26</BackgroundColor>
+                        <TextAlign>Right</TextAlign>
+                        <Color>White</Color>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>Accesses</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+        </Header>
+        <Left>0.0625in</Left>
+        <Height>0.46875in</Height>
+      </Table>
+    </ReportItems>
+    <Height>1.6875in</Height>
+    <Style />
+  </Body>
+  <LeftMargin>1in</LeftMargin>
+  <BottomMargin>1in</BottomMargin>
+  <rd:ReportID>4a41580f-d737-4080-ba4d-52c25e99fb8e</rd:ReportID>
+  <DataSets>
+    <DataSet Name="WebLogAnalyzer_LogFileEntry">
+      <Fields>
+        <Field Name="AccessTime">
+          <DataField>AccessTime</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Page">
+          <DataField>Page</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Status">
+          <DataField>Status</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DummyDataSource</DataSourceName>
+        <CommandText />
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <rd:DataSetInfo>
+        <rd:ObjectDataSourceType>WebLogAnalyzer.LogFileEntry, WebLogAnalyzer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:TableName>LogFileEntry</rd:TableName>
+        <rd:DataSetName>WebLogAnalyzer</rd:DataSetName>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <RightMargin>1in</RightMargin>
+  <Width>7.26042in</Width>
+  <Language>en-US</Language>
+  <TopMargin>1in</TopMargin>
+</Report>

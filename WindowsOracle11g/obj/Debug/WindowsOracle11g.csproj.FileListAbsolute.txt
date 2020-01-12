@@ -1,0 +1,8 @@
+C:\Users\Bus209\Documents\htdocs\CRUDSystem\WindowsOracle11g\bin\Debug\WindowsOracle11g.exe
+C:\Users\Bus209\Documents\htdocs\CRUDSystem\WindowsOracle11g\bin\Debug\WindowsOracle11g.pdb
+C:\Users\Bus209\Documents\htdocs\CRUDSystem\WindowsOracle11g\obj\Debug\WindowsOracle11g.csprojAssemblyReference.cache
+C:\Users\Bus209\Documents\htdocs\CRUDSystem\WindowsOracle11g\obj\Debug\WindowsOracle11g.Form1.resources
+C:\Users\Bus209\Documents\htdocs\CRUDSystem\WindowsOracle11g\obj\Debug\WindowsOracle11g.Properties.Resources.resources
+C:\Users\Bus209\Documents\htdocs\CRUDSystem\WindowsOracle11g\obj\Debug\WindowsOracle11g.csproj.GenerateResource.cache
+C:\Users\Bus209\Documents\htdocs\CRUDSystem\WindowsOracle11g\obj\Debug\WindowsOracle11g.exe
+C:\Users\Bus209\Documents\htdocs\CRUDSystem\WindowsOracle11g\obj\Debug\WindowsOracle11g.pdb

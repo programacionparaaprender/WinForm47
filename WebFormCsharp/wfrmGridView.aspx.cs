@@ -217,5 +217,33 @@ namespace WebFormCsharp
                 }
             }
         }
+
+        protected void GridView11_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                Control control = e.Row.Cells[0].Controls[0];
+                if (control is LinkButton)
+                {
+                    ((LinkButton)control).OnClientClick = "return confirm('Are you want to delete? this cannot be undone.')";
+                }
+            }
+        }
+
+        protected void GridView11_RowDeleted(object sender, GridViewDeletedEventArgs e)
+        {
+            lblMensaje.Visible = true;
+            if (e.AffectedRows > 0)
+            {
+                lblMensaje.Text = "Employee row with EmployeeID = \"" + e.Keys[0].ToString() + "\" is successfully deleted";
+                lblMensaje.ForeColor = System.Drawing.Color.Navy;
+            }
+            else 
+            {
+                lblMensaje.Text = "Employee row with EmployeeID = \"" + e.Keys[0].ToString() + "\" is not deleted due data conflict";
+                lblMensaje.ForeColor = System.Drawing.Color.Red;
+            }
+            
+        }
     }
 }

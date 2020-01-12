@@ -67,6 +67,113 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
+    <asp:GridView 
+        ID="GridView12" 
+        runat="server" 
+        AllowPaging="True" 
+        BackColor="#DEBA84" 
+        BorderColor="#DEBA84" 
+        BorderStyle="None" 
+        BorderWidth="1px" 
+        CellPadding="3" 
+        
+        CellSpacing="2" 
+        DataSourceID="ObjectDataSource15" AutoGenerateColumns="False">
+        <Columns>
+            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+            <asp:BoundField DataField="EmployeesId" HeaderText="EmployeesId" SortExpression="EmployeesId" />
+            <asp:BoundField DataField="EmployeeName" HeaderText="EmployeeName" SortExpression="EmployeeName" />
+            <asp:BoundField DataField="DepartmentName" HeaderText="DepartmentName" SortExpression="DepartmentName" />
+            <asp:BoundField DataField="Gender" HeaderText="Gender" SortExpression="Gender" />
+            <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" />
+        </Columns>
+    </asp:GridView>
+    <asp:ObjectDataSource runat="server" ID="ObjectDataSource15" SelectMethod="GetAllObjectEmplyees" TypeName="WebFormCsharp.App_Code.EmployeesDataAccessLayer" DeleteMethod="DeleteEmplyeesById" UpdateMethod="PutObjectEmplyees">
+        <DeleteParameters>
+            <asp:Parameter Name="EmployeesId" Type="Int32" />
+        </DeleteParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="EmployeesId" Type="Int32" />
+            <asp:Parameter Name="EmployeeName" Type="String" />
+            <asp:Parameter Name="DepartmentName" Type="String" />
+            <asp:Parameter Name="Gender" Type="String" />
+            <asp:Parameter Name="City" Type="String" />
+        </UpdateParameters>
+    </asp:ObjectDataSource>
+    
+    <asp:GridView ID="GridView11" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" DataKeyNames="Id" DataSourceID="SqlDataSource6" OnRowDataBound="GridView11_RowDataBound" OnRowDeleted="GridView11_RowDeleted">
+        <Columns>
+            <asp:CommandField ShowDeleteButton="True" ButtonType="Link" ShowSelectButton="True" />
+            <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
+            <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
+            <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
+            <asp:BoundField DataField="DateOfBirth" HeaderText="DateOfBirth" SortExpression="DateOfBirth" />
+            <asp:BoundField DataField="AnnualSalary" HeaderText="AnnualSalary" SortExpression="AnnualSalary" />
+            <asp:BoundField DataField="Gender" HeaderText="Gender" SortExpression="Gender" />
+            <asp:BoundField DataField="DepartmentName" HeaderText="DepartmentName" SortExpression="DepartmentName" />
+            <asp:BoundField DataField="Country" HeaderText="Country" SortExpression="Country" />
+            <asp:BoundField DataField="Culture" HeaderText="Culture" SortExpression="Culture" />
+            <asp:BoundField DataField="DepartmentId" HeaderText="DepartmentId" SortExpression="DepartmentId" />
+        </Columns>
+        <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
+        <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
+        <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
+        <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
+        <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
+        <SortedAscendingCellStyle BackColor="#FFF1D4" />
+        <SortedAscendingHeaderStyle BackColor="#B95C30" />
+        <SortedDescendingCellStyle BackColor="#F1E5CE" />
+        <SortedDescendingHeaderStyle BackColor="#93451F" />
+    </asp:GridView>
+    <asp:Label id="lblMensaje" Visible="false" runat="server" Font-Bold="true"> </asp:Label>
+    <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:DBConnectionString %>" DeleteCommand="DELETE FROM [Employees] WHERE [Id] = @original_Id AND [FirstName] = @original_FirstName AND [LastName] = @original_LastName AND [DateOfBirth] = @original_DateOfBirth AND [AnnualSalary] = @original_AnnualSalary AND [Gender] = @original_Gender AND [DepartmentName] = @original_DepartmentName AND (([Country] = @original_Country) OR ([Country] IS NULL AND @original_Country IS NULL)) AND (([Culture] = @original_Culture) OR ([Culture] IS NULL AND @original_Culture IS NULL)) AND (([DepartmentId] = @original_DepartmentId) OR ([DepartmentId] IS NULL AND @original_DepartmentId IS NULL))" InsertCommand="INSERT INTO [Employees] ([FirstName], [LastName], [DateOfBirth], [AnnualSalary], [Gender], [DepartmentName], [Country], [Culture], [DepartmentId]) VALUES (@FirstName, @LastName, @DateOfBirth, @AnnualSalary, @Gender, @DepartmentName, @Country, @Culture, @DepartmentId)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Employees]" UpdateCommand="UPDATE [Employees] SET [FirstName] = @FirstName, [LastName] = @LastName, [DateOfBirth] = @DateOfBirth, [AnnualSalary] = @AnnualSalary, [Gender] = @Gender, [DepartmentName] = @DepartmentName, [Country] = @Country, [Culture] = @Culture, [DepartmentId] = @DepartmentId WHERE [Id] = @original_Id AND [FirstName] = @original_FirstName AND [LastName] = @original_LastName AND [DateOfBirth] = @original_DateOfBirth AND [AnnualSalary] = @original_AnnualSalary AND [Gender] = @original_Gender AND [DepartmentName] = @original_DepartmentName AND (([Country] = @original_Country) OR ([Country] IS NULL AND @original_Country IS NULL)) AND (([Culture] = @original_Culture) OR ([Culture] IS NULL AND @original_Culture IS NULL)) AND (([DepartmentId] = @original_DepartmentId) OR ([DepartmentId] IS NULL AND @original_DepartmentId IS NULL))">
+        <DeleteParameters>
+            <asp:Parameter Name="original_Id" Type="Int32" />
+            <asp:Parameter Name="original_FirstName" Type="String" />
+            <asp:Parameter Name="original_LastName" Type="String" />
+            <asp:Parameter Name="original_DateOfBirth" Type="DateTime" />
+            <asp:Parameter Name="original_AnnualSalary" Type="Decimal" />
+            <asp:Parameter Name="original_Gender" Type="String" />
+            <asp:Parameter Name="original_DepartmentName" Type="String" />
+            <asp:Parameter Name="original_Country" Type="String" />
+            <asp:Parameter Name="original_Culture" Type="String" />
+            <asp:Parameter Name="original_DepartmentId" Type="Int32" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="FirstName" Type="String" />
+            <asp:Parameter Name="LastName" Type="String" />
+            <asp:Parameter Name="DateOfBirth" Type="DateTime" />
+            <asp:Parameter Name="AnnualSalary" Type="Decimal" />
+            <asp:Parameter Name="Gender" Type="String" />
+            <asp:Parameter Name="DepartmentName" Type="String" />
+            <asp:Parameter Name="Country" Type="String" />
+            <asp:Parameter Name="Culture" Type="String" />
+            <asp:Parameter Name="DepartmentId" Type="Int32" />
+        </InsertParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="FirstName" Type="String" />
+            <asp:Parameter Name="LastName" Type="String" />
+            <asp:Parameter Name="DateOfBirth" Type="DateTime" />
+            <asp:Parameter Name="AnnualSalary" Type="Decimal" />
+            <asp:Parameter Name="Gender" Type="String" />
+            <asp:Parameter Name="DepartmentName" Type="String" />
+            <asp:Parameter Name="Country" Type="String" />
+            <asp:Parameter Name="Culture" Type="String" />
+            <asp:Parameter Name="DepartmentId" Type="Int32" />
+            <asp:Parameter Name="original_Id" Type="Int32" />
+            <asp:Parameter Name="original_FirstName" Type="String" />
+            <asp:Parameter Name="original_LastName" Type="String" />
+            <asp:Parameter Name="original_DateOfBirth" Type="DateTime" />
+            <asp:Parameter Name="original_AnnualSalary" Type="Decimal" />
+            <asp:Parameter Name="original_Gender" Type="String" />
+            <asp:Parameter Name="original_DepartmentName" Type="String" />
+            <asp:Parameter Name="original_Country" Type="String" />
+            <asp:Parameter Name="original_Culture" Type="String" />
+            <asp:Parameter Name="original_DepartmentId" Type="Int32" />
+        </UpdateParameters>
+    </asp:SqlDataSource>
+    
+
     
     <asp:GridView 
         ID="GridView10" 
@@ -101,11 +208,52 @@
         ID="SqlDataSource5" 
         runat="server" 
         ConnectionString="<%$ ConnectionStrings:DBConnectionString %>" 
-        DeleteCommand="DELETE FROM [Employees] WHERE [Id] = @Id" 
-        SelectCommand="SELECT * FROM [Employees]">
+        DeleteCommand="DELETE FROM [Employees] WHERE [Id] = @original_Id AND [FirstName] = @original_FirstName AND [LastName] = @original_LastName AND [DateOfBirth] = @original_DateOfBirth AND [AnnualSalary] = @original_AnnualSalary AND [Gender] = @original_Gender AND [DepartmentName] = @original_DepartmentName AND (([Country] = @original_Country) OR ([Country] IS NULL AND @original_Country IS NULL)) AND (([Culture] = @original_Culture) OR ([Culture] IS NULL AND @original_Culture IS NULL)) AND (([DepartmentId] = @original_DepartmentId) OR ([DepartmentId] IS NULL AND @original_DepartmentId IS NULL))" 
+        SelectCommand="SELECT * FROM [Employees]" ConflictDetection="CompareAllValues" InsertCommand="INSERT INTO [Employees] ([FirstName], [LastName], [DateOfBirth], [AnnualSalary], [Gender], [DepartmentName], [Country], [Culture], [DepartmentId]) VALUES (@FirstName, @LastName, @DateOfBirth, @AnnualSalary, @Gender, @DepartmentName, @Country, @Culture, @DepartmentId)" OldValuesParameterFormatString="original_{0}" UpdateCommand="UPDATE [Employees] SET [FirstName] = @FirstName, [LastName] = @LastName, [DateOfBirth] = @DateOfBirth, [AnnualSalary] = @AnnualSalary, [Gender] = @Gender, [DepartmentName] = @DepartmentName, [Country] = @Country, [Culture] = @Culture, [DepartmentId] = @DepartmentId WHERE [Id] = @original_Id AND [FirstName] = @original_FirstName AND [LastName] = @original_LastName AND [DateOfBirth] = @original_DateOfBirth AND [AnnualSalary] = @original_AnnualSalary AND [Gender] = @original_Gender AND [DepartmentName] = @original_DepartmentName AND (([Country] = @original_Country) OR ([Country] IS NULL AND @original_Country IS NULL)) AND (([Culture] = @original_Culture) OR ([Culture] IS NULL AND @original_Culture IS NULL)) AND (([DepartmentId] = @original_DepartmentId) OR ([DepartmentId] IS NULL AND @original_DepartmentId IS NULL))">
         <DeleteParameters>
-            <asp:Parameter Name="Id" Type="Int32" />
+            <asp:Parameter Name="original_Id" Type="Int32" />
+            <asp:Parameter Name="original_FirstName" Type="String" />
+            <asp:Parameter Name="original_LastName" Type="String" />
+            <asp:Parameter Name="original_DateOfBirth" Type="DateTime" />
+            <asp:Parameter Name="original_AnnualSalary" Type="Decimal" />
+            <asp:Parameter Name="original_Gender" Type="String" />
+            <asp:Parameter Name="original_DepartmentName" Type="String" />
+            <asp:Parameter Name="original_Country" Type="String" />
+            <asp:Parameter Name="original_Culture" Type="String" />
+            <asp:Parameter Name="original_DepartmentId" Type="Int32" />
         </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="FirstName" Type="String" />
+            <asp:Parameter Name="LastName" Type="String" />
+            <asp:Parameter Name="DateOfBirth" Type="DateTime" />
+            <asp:Parameter Name="AnnualSalary" Type="Decimal" />
+            <asp:Parameter Name="Gender" Type="String" />
+            <asp:Parameter Name="DepartmentName" Type="String" />
+            <asp:Parameter Name="Country" Type="String" />
+            <asp:Parameter Name="Culture" Type="String" />
+            <asp:Parameter Name="DepartmentId" Type="Int32" />
+        </InsertParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="FirstName" Type="String" />
+            <asp:Parameter Name="LastName" Type="String" />
+            <asp:Parameter Name="DateOfBirth" Type="DateTime" />
+            <asp:Parameter Name="AnnualSalary" Type="Decimal" />
+            <asp:Parameter Name="Gender" Type="String" />
+            <asp:Parameter Name="DepartmentName" Type="String" />
+            <asp:Parameter Name="Country" Type="String" />
+            <asp:Parameter Name="Culture" Type="String" />
+            <asp:Parameter Name="DepartmentId" Type="Int32" />
+            <asp:Parameter Name="original_Id" Type="Int32" />
+            <asp:Parameter Name="original_FirstName" Type="String" />
+            <asp:Parameter Name="original_LastName" Type="String" />
+            <asp:Parameter Name="original_DateOfBirth" Type="DateTime" />
+            <asp:Parameter Name="original_AnnualSalary" Type="Decimal" />
+            <asp:Parameter Name="original_Gender" Type="String" />
+            <asp:Parameter Name="original_DepartmentName" Type="String" />
+            <asp:Parameter Name="original_Country" Type="String" />
+            <asp:Parameter Name="original_Culture" Type="String" />
+            <asp:Parameter Name="original_DepartmentId" Type="Int32" />
+        </UpdateParameters>
     </asp:SqlDataSource>
     <asp:DropDownList ID="DropDownList3" runat="server" AutoPostBack="True" DataSourceID="ObjectDepartments" DataTextField="DepartmentName" DataValueField="DepartmentId"></asp:DropDownList>
     <asp:GridView 
