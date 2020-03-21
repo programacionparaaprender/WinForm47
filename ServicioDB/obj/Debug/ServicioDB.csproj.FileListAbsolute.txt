@@ -1,0 +1,12 @@
+C:\Users\Bus209\Documents\htdocs\CRUDSystem\ServicioDB\obj\Debug\ServicioDB.ProjectInstaller.resources
+C:\Users\Bus209\Documents\htdocs\CRUDSystem\ServicioDB\obj\Debug\ServicioDB.csproj.GenerateResource.cache
+C:\Users\Bus209\Documents\htdocs\CRUDSystem\ServicioDB\bin\Debug\ServicioDB.exe.config
+C:\Users\Bus209\Documents\htdocs\CRUDSystem\ServicioDB\bin\Debug\ServicioDB.exe
+C:\Users\Bus209\Documents\htdocs\CRUDSystem\ServicioDB\bin\Debug\ServicioDB.pdb
+C:\Users\Bus209\Documents\htdocs\CRUDSystem\ServicioDB\bin\Debug\EntityFramework.dll
+C:\Users\Bus209\Documents\htdocs\CRUDSystem\ServicioDB\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Bus209\Documents\htdocs\CRUDSystem\ServicioDB\bin\Debug\EntityFramework.xml
+C:\Users\Bus209\Documents\htdocs\CRUDSystem\ServicioDB\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Bus209\Documents\htdocs\CRUDSystem\ServicioDB\obj\Debug\ServicioDB.csproj.CopyComplete
+C:\Users\Bus209\Documents\htdocs\CRUDSystem\ServicioDB\obj\Debug\ServicioDB.exe
+C:\Users\Bus209\Documents\htdocs\CRUDSystem\ServicioDB\obj\Debug\ServicioDB.pdb

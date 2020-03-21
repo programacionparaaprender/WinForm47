@@ -67,6 +67,7 @@
     <Content Include="Global.asax" />
     <Content Include="iteraciones.txt" />
     <Content Include="App.config" />
+    <Content Include="wfrmRestApi.aspx" />
     <None Include="packages.config" />
     <None Include="Scripts\jquery-1.7.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
@@ -89,6 +90,13 @@
     <Content Include="wfrmGridView.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="wfrmRestApi.aspx.cs">
+      <DependentUpon>wfrmRestApi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfrmRestApi.aspx.designer.cs">
+      <DependentUpon>wfrmRestApi.aspx</DependentUpon>
+    </Compile>
     <Content Include="App_Code\DepartmentDataAccessLayer.cs" />
     <Content Include="App_Code\EmployeesDataAccessLayer.cs" />
     <Compile Include="Global.asax.cs">

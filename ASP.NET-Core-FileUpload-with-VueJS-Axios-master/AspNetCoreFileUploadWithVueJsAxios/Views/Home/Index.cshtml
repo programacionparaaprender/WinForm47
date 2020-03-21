@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Multiple File Upload using Vue.JS & Axios</h1>
+<hr />
+<div id="fileUploadApp">
+    <form>
+        <input type="file" multiple="" @@change="fileChange($event.target.files)" />
+        <br />
+        <button class="btn btn-primary" @@click="startUpload()" type="button">Upload File(s)</button>
+    </form>
+</div>
+
+@section Scripts
+    {
+    <script src="~/js/app.build.js"></script>
+}
