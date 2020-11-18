@@ -26,6 +26,7 @@ Partial Class frmBackgroudworker
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.resultLabel = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'BackgroundWorker1
@@ -33,16 +34,18 @@ Partial Class frmBackgroudworker
         '
         'ProgressBar1
         '
-        Me.ProgressBar1.Location = New System.Drawing.Point(42, 81)
+        Me.ProgressBar1.Location = New System.Drawing.Point(56, 100)
+        Me.ProgressBar1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(336, 23)
+        Me.ProgressBar1.Size = New System.Drawing.Size(448, 28)
         Me.ProgressBar1.TabIndex = 0
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(42, 12)
+        Me.Button1.Location = New System.Drawing.Point(56, 15)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 47)
+        Me.Button1.Size = New System.Drawing.Size(100, 58)
         Me.Button1.TabIndex = 1
         Me.Button1.Text = "Button1"
         Me.Button1.UseVisualStyleBackColor = True
@@ -50,20 +53,32 @@ Partial Class frmBackgroudworker
         'resultLabel
         '
         Me.resultLabel.AutoSize = True
-        Me.resultLabel.Location = New System.Drawing.Point(171, 29)
+        Me.resultLabel.Location = New System.Drawing.Point(228, 36)
+        Me.resultLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.resultLabel.Name = "resultLabel"
-        Me.resultLabel.Size = New System.Drawing.Size(39, 13)
+        Me.resultLabel.Size = New System.Drawing.Size(51, 17)
         Me.resultLabel.TabIndex = 2
         Me.resultLabel.Text = "Label1"
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(351, 15)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(100, 58)
+        Me.Button2.TabIndex = 3
+        Me.Button2.Text = "Cancelar"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'frmBackgroudworker
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(429, 450)
+        Me.ClientSize = New System.Drawing.Size(572, 554)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.resultLabel)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.ProgressBar1)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmBackgroudworker"
         Me.Text = "frmBackgroudworker"
         Me.ResumeLayout(False)
@@ -75,4 +90,5 @@ Partial Class frmBackgroudworker
     Friend WithEvents ProgressBar1 As Windows.Forms.ProgressBar
     Friend WithEvents Button1 As Windows.Forms.Button
     Friend WithEvents resultLabel As Windows.Forms.Label
+    Friend WithEvents Button2 As Windows.Forms.Button
 End Class

@@ -245,5 +245,10 @@ namespace WebFormCsharp
             }
             
         }
+
+        protected void GridView11_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

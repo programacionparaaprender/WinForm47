@@ -1,5 +1,5 @@
 ﻿
-
+Trabajar con ado.net asp.net net framework
 https://www.youtube.com/watch?v=ar0cKjjgfb8&feature=emb_title
 
 
@@ -16,3 +16,50 @@ http://www.dotnetawesome.com/2013/09/checkbox-inside-gridview-and-handle-its.htm
 https://docs.microsoft.com/es-es/dotnet/api/system.web.ui.webcontrols.menu.menuitemclick?view=netframework-4.8
 
 https://social.technet.microsoft.com/wiki/contents/articles/11697.using-method-type-postget-in-asp-net-web-form.aspx
+
+
+
+
+
+
+
+https://carlosazaustre.es/tutorial-aplicacion-web-con-angularjs-y-routing/
+http://www.programandoconrupert.com/angularjs-peticiones-por-ajax/
+https://www.tutorialsteacher.com/webapi/web-api-controller
+AngularJS Routes
+https://stackoverflow.com/questions/40656736/vue-resource-cross-site-http-request
+
+VueJS 1.x routes
+https://www.tutorialspoint.com/vuejs/vuejs_routing.htm
+
+
+Dibujar imagen en un canvas
+https://www.youtube.com/watch?v=kC3bmcaS6bw
+
+
+Documentación mozilla
+https://developer.mozilla.org/es/docs/Web/API/FileReader/readAsDataURL
+
+obtener pixeles de una imagen
+http://www.etnassoft.com/2016/11/03/manipulacion-de-imagenes-con-javascript-parte-1/
+https://developer.mozilla.org/es/docs/Web/API/HTMLImageElement/Image
+https://developer.mozilla.org/es/docs/Web/API/CanvasRenderingContext2D/getImageData
+https://developer.mozilla.org/en-US/docs/Web/API/ImageData
+
+Solución la imagen se envia a vb.net como un diccionario string,integer
+https://codeday.me/es/qa/20190128/151702.html
+
+Convertir objeto en json
+https://www.c-sharpcorner.com/article/json-serialization-and-deserialization-in-c-sharp/
+
+Errores de lectura de imagen en vb.net
+https://social.msdn.microsoft.com/Forums/es-ES/4e292390-6a78-4a20-b990-49c0e29c7f84/se-excedi-la-longitud-de-solicitud-mxima?forum=netfxwebes
+
+Convertir un FileReader.readAsDataURL()
+https://stackoverflow.com/questions/46736443/convert-a-file-from-to-base-64-using-javascript-and-converting-it-back-to-file-u
+
+
+
+Pendiente
+https://desarrolloweb.com/articulos/escalado-recorte-imagenes-canvas.html
+http://www.etnassoft.com/2016/11/03/manipulacion-de-imagenes-con-javascript-parte-1/

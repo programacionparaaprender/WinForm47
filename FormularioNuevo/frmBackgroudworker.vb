@@ -48,4 +48,10 @@ Public Class frmBackgroudworker
             resultLabel.Text = "Done!"
         End If
     End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        'If Me.BackgroundWorker1.CancellationPending Then
+
+        'End If
+    End Sub
 End Class

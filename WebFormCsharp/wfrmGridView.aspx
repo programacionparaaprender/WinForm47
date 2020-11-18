@@ -101,7 +101,7 @@
         </UpdateParameters>
     </asp:ObjectDataSource>
     
-    <asp:GridView ID="GridView11" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" DataKeyNames="Id" DataSourceID="SqlDataSource6" OnRowDataBound="GridView11_RowDataBound" OnRowDeleted="GridView11_RowDeleted">
+    <asp:GridView ID="GridView11" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" DataKeyNames="Id" DataSourceID="SqlDataSource6" OnRowDataBound="GridView11_RowDataBound" OnRowDeleted="GridView11_RowDeleted" OnSelectedIndexChanged="GridView11_SelectedIndexChanged">
         <Columns>
             <asp:CommandField ShowDeleteButton="True" ButtonType="Link" ShowSelectButton="True" />
             <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
