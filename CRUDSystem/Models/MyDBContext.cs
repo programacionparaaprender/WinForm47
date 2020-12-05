@@ -7,7 +7,7 @@ using System.Data.Entity;
 
 namespace CRUDSystem.Models
 {
-    class MyDBContext:DbContext
+    public class MyDBContext:DbContext
     {
         public MyDBContext():base("MyDBConnectionString")
         {

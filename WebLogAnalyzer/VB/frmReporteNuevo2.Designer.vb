@@ -19,22 +19,22 @@ Partial Public Class frmReporteNuevo2
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
-        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmReporteNuevo2))
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.LogFileEntryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ReportViewer = New Microsoft.Reporting.WinForms.ReportViewer
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip
-        Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.OpenLogFilesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
-        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.ViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.DocumentMapToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.IgnoreFilesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.FolderBrowserDialog = New System.Windows.Forms.FolderBrowserDialog
+        Me.ReportViewer = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OpenLogFilesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DocumentMapToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.IgnoreFilesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FolderBrowserDialog = New System.Windows.Forms.FolderBrowserDialog()
         CType(Me.LogFileEntryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -58,6 +58,7 @@ Partial Public Class frmReporteNuevo2
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.ViewToolStripMenuItem, Me.HelpToolStripMenuItem})
         resources.ApplyResources(Me.MenuStrip1, "MenuStrip1")
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -114,14 +115,14 @@ Partial Public Class frmReporteNuevo2
         '
         resources.ApplyResources(Me.FolderBrowserDialog, "FolderBrowserDialog")
         '
-        'MainForm
+        'frmReporteNuevo2
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.ReportViewer)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.Name = "MainForm"
+        Me.Name = "frmReporteNuevo2"
         CType(Me.LogFileEntryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
@@ -129,7 +130,6 @@ Partial Public Class frmReporteNuevo2
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents ReportViewer As Microsoft.Reporting.WinForms.ReportViewer
     Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
     Friend WithEvents FileToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents OpenLogFilesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -142,5 +142,5 @@ Partial Public Class frmReporteNuevo2
     Friend WithEvents DocumentMapToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents IgnoreFilesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LogFileEntryBindingSource As System.Windows.Forms.BindingSource
-
+    Private WithEvents ReportViewer As Microsoft.Reporting.WinForms.ReportViewer
 End Class

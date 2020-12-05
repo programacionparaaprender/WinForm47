@@ -130,5 +130,13 @@ namespace CRUDSystem
                 this.dtpDOB.Value = detail.DOB;
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //http://joseluisgarciab.blogspot.com/2013/10/reportviewer-y-rdlc-ejemplo-facturacion.html
+            frmReporte frmReporte = new frmReporte(context.Details.ToList<Detail>());
+
+            frmReporte.ShowDialog();
+        }
     }
 }

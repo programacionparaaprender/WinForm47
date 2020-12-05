@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CRUDSystem.Models
 {
-    class Detail
+    public class Detail
     {
         [Key]
         public int ID { get; set; }
