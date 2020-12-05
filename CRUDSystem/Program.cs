@@ -17,7 +17,7 @@ namespace CRUDSystem
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new frmInforme());
-            Application.Run(new Form1());
+            Application.Run(new frmCrudSystem());
         }
     }
 }
