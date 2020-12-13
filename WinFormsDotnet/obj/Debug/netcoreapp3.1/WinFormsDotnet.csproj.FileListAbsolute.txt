@@ -1,0 +1,11 @@
+C:\Users\Bus209\Documents\htdocs\WinForm47\WinFormsDotnet\bin\Debug\netcoreapp3.1\WinFormsDotnet.exe
+C:\Users\Bus209\Documents\htdocs\WinForm47\WinFormsDotnet\bin\Debug\netcoreapp3.1\WinFormsDotnet.deps.json
+C:\Users\Bus209\Documents\htdocs\WinForm47\WinFormsDotnet\bin\Debug\netcoreapp3.1\WinFormsDotnet.runtimeconfig.json
+C:\Users\Bus209\Documents\htdocs\WinForm47\WinFormsDotnet\bin\Debug\netcoreapp3.1\WinFormsDotnet.runtimeconfig.dev.json
+C:\Users\Bus209\Documents\htdocs\WinForm47\WinFormsDotnet\bin\Debug\netcoreapp3.1\WinFormsDotnet.dll
+C:\Users\Bus209\Documents\htdocs\WinForm47\WinFormsDotnet\bin\Debug\netcoreapp3.1\WinFormsDotnet.pdb
+C:\Users\Bus209\Documents\htdocs\WinForm47\WinFormsDotnet\obj\Debug\netcoreapp3.1\WinFormsDotnet.csprojAssemblyReference.cache
+C:\Users\Bus209\Documents\htdocs\WinForm47\WinFormsDotnet\obj\Debug\netcoreapp3.1\WinFormsDotnet.AssemblyInfoInputs.cache
+C:\Users\Bus209\Documents\htdocs\WinForm47\WinFormsDotnet\obj\Debug\netcoreapp3.1\WinFormsDotnet.AssemblyInfo.cs
+C:\Users\Bus209\Documents\htdocs\WinForm47\WinFormsDotnet\obj\Debug\netcoreapp3.1\WinFormsDotnet.dll
+C:\Users\Bus209\Documents\htdocs\WinForm47\WinFormsDotnet\obj\Debug\netcoreapp3.1\WinFormsDotnet.pdb

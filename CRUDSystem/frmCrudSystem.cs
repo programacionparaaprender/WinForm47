@@ -43,13 +43,63 @@ namespace CRUDSystem
                 hoja_trabajo =
                     (Microsoft.Office.Interop.Excel.Worksheet)libros_trabajo.Worksheets.get_Item(1);
                 //Recorremos el DataGridView rellenando la hoja de trabajo
-                for (int i = 0; i < this.dataGridView1.Rows.Count - 1; i++)
+
+                int variable = 1;
+                hoja_trabajo.Cells[variable, 1] = "Titulo 1";
+                variable++;
+
+                hoja_trabajo.Cells[variable, 1] = "Titulo 2";
+                variable++;
+
+                hoja_trabajo.Cells[variable, 1] = "Titulo 3";
+
+                //combinar las celdas
+                hoja_trabajo.Range["A1:F1"].Merge();
+                hoja_trabajo.Range["A2:F2"].Merge();
+                hoja_trabajo.Range["A3:F3"].Merge();
+
+                hoja_trabajo.Range["A1:F1"].Font.Bold = true;
+                hoja_trabajo.Range["A2:F2"].Font.Bold = true;
+                hoja_trabajo.Range["A3:F3"].Font.Bold = true;
+
+
+                hoja_trabajo.Range["A1:F1"].Font.Size = 20;
+                hoja_trabajo.Range["A2:F2"].Font.Size = 20;
+                hoja_trabajo.Range["A3:F3"].Font.Size = 20;
+
+
+                variable++;
+
+                hoja_trabajo.Cells[variable, 1] = "N°";
+                hoja_trabajo.Cells[variable, 2] = "Name";
+                hoja_trabajo.Cells[variable, 3] = "Lastname";
+                hoja_trabajo.Cells[variable, 4] = "Age";
+                hoja_trabajo.Cells[variable, 5] = "Address";
+                hoja_trabajo.Cells[variable, 6] = "D.O.B.";
+
+                
+
+
+
+                hoja_trabajo.Range["A4:F4"].Cells.Borders.LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
+                hoja_trabajo.Range["A4:F4"].Font.Bold = true;
+                hoja_trabajo.Range["A4:F4"].VerticalAlignment = Microsoft.Office.Interop.Excel.Constants.xlCenter;
+                hoja_trabajo.Range["A4:F4"].HorizontalAlignment = Microsoft.Office.Interop.Excel.Constants.xlCenter;
+
+                //aumentar tamaño de celda
+                hoja_trabajo.Columns["F"].ColumnWidth = hoja_trabajo.Columns["F"].ColumnWidth * 2;
+                hoja_trabajo.Rows[variable].RowHeight = hoja_trabajo.Rows[variable].RowHeight * 2;
+
+
+                for (int i = 0; i < this.dataGridView1.Rows.Count; i++)
                 {
                     for (int j = 0; j < this.dataGridView1.Columns.Count; j++)
                     {
-                        hoja_trabajo.Cells[i + 1, j + 1] = this.dataGridView1.Rows[i].Cells[j].Value.ToString();
+                        hoja_trabajo.Range["A"+Convert.ToString(i + 1 + variable) +":F"+Convert.ToString(i + 1 + variable)].Cells.Borders.LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
+                        hoja_trabajo.Cells[i + 1 + variable, j + 1] = this.dataGridView1.Rows[i].Cells[j].Value.ToString();
                     }
                 }
+
                 libros_trabajo.SaveAs(fichero.FileName,
                     Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal);
                 libros_trabajo.Close(true);
