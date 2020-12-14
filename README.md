@@ -1,4 +1,46 @@
 
+## instalar librerias dotnet
+dotnet add package System.Data.Entity.Repository --version 2.0.0.1
+
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore
+dotnet add package  Microsoft.EntityFrameworkCore.Tools
+dotnet add package Microsoft.Office.Interop.Excel
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet add package EntityFramework 
+
+## realizar la migración
+https://docs.microsoft.com/es-es/ef/core/cli/dotnet
+para que funcione crear la base de datos con la extensión dentro de debug/netcoreappx.x/
+
+dotnet ef dbcontext scaffold "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MyDb.mdf;Integrated Security=True" Microsoft.EntityFrameworkCore.SqlServer -o Models
+
+dotnet ef migrations add InitialCreate
+dotnet ef database update InitialCreate
+
+### no funcionan
+
+dotnet tool uninstall --global dotnet-ef
+dotnet tool install --global dotnet-ef
+dotnet tool update --global dotnet-ef
+
+dotnet ef migrations add InitialCreate
+dotnet ef migrations add initial --project ../WinFormsDotnet.csproj
+#### connectionstring
+dotnet ef database update 20180904195021_InitialCreate --connection MyDBContext
+
+
+
+
+Enable-Migrations -ProjectName CRUDSystem -ContextTypeName MyDBContext
+Add-Migration Initial
+Update-Database
+agregue luego Books 
+add-migration updateNameProperty
+update-database
+Al agregar MyDBInitializer  es el que tiene el seeder
+update-database
+
 
 ## trabajar archivos excel
 
