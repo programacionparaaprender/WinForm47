@@ -18,8 +18,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Office.Interop.Excel" Version="15.0.4795.1000" />
-    <PackageReference Include="System.Data.Entity.Repository" Version="2.0.0.1" />
+    <PackageReference Include="System.Data.Sqlclient" Version="4.8.2" />
   </ItemGroup>
 
 </Project>

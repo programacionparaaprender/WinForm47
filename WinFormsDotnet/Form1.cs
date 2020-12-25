@@ -19,7 +19,8 @@ namespace WinFormsDotnet
         {
             InitializeComponent();
             context = new MyDBContext();
-            this.dataGridView1.DataSource = context.Details.ToList<Detail>();
+            if(context.Details.ToList<Detail>() != null)
+                this.dataGridView1.DataSource = context.Details.ToList<Detail>();
 
         }
 
@@ -31,7 +32,7 @@ namespace WinFormsDotnet
         private void BtnExportExcel_Click(object sender, EventArgs e)
         {
 
-            SaveFileDialog fichero = new SaveFileDialog();
+            /* SaveFileDialog fichero = new SaveFileDialog();
             fichero.Filter = "Excel (*.xls)|*.xls";
             if (fichero.ShowDialog() == DialogResult.OK)
             {
@@ -54,7 +55,7 @@ namespace WinFormsDotnet
                     Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal);
                 libros_trabajo.Close(true);
                 aplicacion.Quit();
-            }
+            } */
         }
 
         private void TxtlName_TextChanged(object sender, EventArgs e)

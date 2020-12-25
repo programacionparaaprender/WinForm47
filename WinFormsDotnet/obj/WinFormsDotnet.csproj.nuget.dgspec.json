@@ -67,13 +67,9 @@
               "target": "Package",
               "version": "[5.0.1, )"
             },
-            "Microsoft.Office.Interop.Excel": {
+            "System.Data.Sqlclient": {
               "target": "Package",
-              "version": "[15.0.4795.1000, )"
-            },
-            "System.Data.Entity.Repository": {
-              "target": "Package",
-              "version": "[2.0.0.1, )"
+              "version": "[4.8.2, )"
             }
           },
           "imports": [

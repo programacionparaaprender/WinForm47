@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -181,12 +182,77 @@ namespace CRUDSystem
             }
         }
 
+        private bool CheckForm(Form form)
+        {
+            bool valor = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if(f.Name == form.Name)
+                {
+                    valor = true;
+                    break;
+                }
+            }
+
+            return valor;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             //http://joseluisgarciab.blogspot.com/2013/10/reportviewer-y-rdlc-ejemplo-facturacion.html
-            frmReporte frmReporte = new frmReporte(context.Details.ToList<Detail>());
+            frmReporte frmReporte;
+            frmReporte= new frmReporte(context.Details.ToList<Detail>());
+            if (!CheckForm(frmReporte))
+                frmReporte.Show();
+            else
+                MessageBox.Show("Ya tiene abierto un reporte");
+        }
 
-            frmReporte.ShowDialog();
+        private void button2_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = true;
+            if (!backgroundWorker1.IsBusy)
+            {
+                backgroundWorker1.RunWorkerAsync();
+            }
+            else
+            {
+                MessageBox.Show("Ya se esta ejecutando un  mensaje worker");
+            }
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Thread.Sleep(3000);
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            panel1.Visible = false;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (backgroundWorker1.IsBusy)
+            {
+                backgroundWorker1.CancelAsync();
+                panel1.Visible = false;
+                MessageBox.Show("Se cancelo un mensaje worker");
+            }
+            else
+            {
+                MessageBox.Show("No se esta ejecutando un mensaje worker");
+            }
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+
+        }
+
+        private void frmCrudSystem_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

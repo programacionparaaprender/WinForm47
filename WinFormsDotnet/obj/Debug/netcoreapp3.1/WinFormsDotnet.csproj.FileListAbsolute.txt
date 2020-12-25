@@ -11,9 +11,7 @@ C:\Users\Bus209\Documents\htdocs\WinForm47\WinFormsDotnet\obj\Debug\netcoreapp3.
 C:\Users\Bus209\Documents\htdocs\WinForm47\WinFormsDotnet\obj\Debug\netcoreapp3.1\WinFormsDotnet.pdb
 C:\Users\Bus209\Documents\htdocs\WinForm47\WinFormsDotnet\bin\Debug\netcoreapp3.1\WinFormsDotnet.dll.config
 C:\Users\Bus209\Documents\htdocs\WinForm47\WinFormsDotnet\bin\Debug\netcoreapp3.1\EntityFramework.dll
-C:\Users\Bus209\Documents\htdocs\WinForm47\WinFormsDotnet\bin\Debug\netcoreapp3.1\System.Data.Entity.Repository.dll
 C:\Users\Bus209\Documents\htdocs\WinForm47\WinFormsDotnet\obj\Debug\netcoreapp3.1\WinFormsDotnet.csproj.CopyComplete
-C:\Users\Bus209\Documents\htdocs\WinForm47\WinFormsDotnet\bin\Debug\netcoreapp3.1\Microsoft.Office.Interop.Excel.dll
 C:\Users\Bus209\Documents\htdocs\WinForm47\WinFormsDotnet\bin\Debug\netcoreapp3.1\Humanizer.dll
 C:\Users\Bus209\Documents\htdocs\WinForm47\WinFormsDotnet\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
 C:\Users\Bus209\Documents\htdocs\WinForm47\WinFormsDotnet\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll

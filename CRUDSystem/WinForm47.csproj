@@ -242,6 +242,9 @@
     <None Include="Resources\animacion1.png" />
     <None Include="Resources\background.gif" />
     <None Include="Resources\logo.png" />
+    <None Include="Resources\barra.gif" />
+    <None Include="Resources\barra2.gif" />
+    <None Include="Resources\E5qkx.gif" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="tuto\iteraciones.txt" />
   </ItemGroup>

@@ -28,6 +28,9 @@ https://stackoverflow.com/questions/16497938/ef-5-enable-migrations-no-context-t
 
 Enable-Migrations -ProjectName CRUDSystem -ContextTypeName MyDBContext
 
+otro
+Enable-Migrations -ProjectName WinFormsDotnet -ContextTypeName MyDBContext
+
 Add-Migration Initial
 
 Update-Database
