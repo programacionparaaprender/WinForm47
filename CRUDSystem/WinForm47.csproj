@@ -136,6 +136,12 @@
     <Compile Include="frmReporte.Designer.cs">
       <DependentUpon>frmReporte.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTiemposProyecto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTiemposProyecto.Designer.cs">
+      <DependentUpon>frmTiemposProyecto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201905251433418_Initial.cs" />
     <Compile Include="Migrations\201905251433418_Initial.Designer.cs">
       <DependentUpon>201905251433418_Initial.cs</DependentUpon>
@@ -143,8 +149,12 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Detail.cs" />
+    <Compile Include="Models\Formulario.cs" />
     <Compile Include="Models\MyDBContext.cs" />
+    <Compile Include="Models\Procedimiento.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Reporte.cs" />
+    <Compile Include="Models\Tabla.cs" />
     <Compile Include="Models\Workout.cs" />
     <Compile Include="NodoArbol.cs" />
     <Compile Include="Program.cs" />
@@ -164,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporte.resx">
       <DependentUpon>frmReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTiemposProyecto.resx">
+      <DependentUpon>frmTiemposProyecto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905251433418_Initial.resx">
       <DependentUpon>201905251433418_Initial.cs</DependentUpon>

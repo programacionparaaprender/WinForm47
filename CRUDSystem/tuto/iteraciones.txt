@@ -13,12 +13,26 @@ https://www.youtube.com/watch?v=yFXARwLrUd8
 Excel
 ------------------
 https://webprogramacion.com/334/csharp/exportar-datos-de-un-datagridview-a-un-fichero-excel-en-c.aspx
+https://social.msdn.microsoft.com/Forums/es-ES/c87d639e-5aef-47c0-92c5-62773f814006/cambiarle-el-color-a-las-celdas-de-un-excel-desde-vbnet?forum=vbes
+https://stackoverflow.com/questions/6983141/changing-cell-color-of-excel-sheet-via-vb-net/28511792
+
+
+### datagridview
+https://es.stackoverflow.com/questions/41711/asignarle-un-color-rgb-a-un-celda-de-un-datagridview
+https://social.msdn.microsoft.com/Forums/es-ES/8afbec9c-aba2-42c0-a53a-1c18e36d8e12/nombre-de-columna-de-un-datagridview?forum=vbes
+https://www.codeproject.com/Articles/19045/Manipulating-colors-in-NET-Part-1
 
 
 ----
-Entity framework
+### Entity framework
 ----------------
 https://stackoverflow.com/questions/16497938/ef-5-enable-migrations-no-context-type-was-found-in-the-assembly
+
+### relaciones
+https://docs.microsoft.com/en-us/ef/ef6/fundamentals/relationships
+ posible solución
+ Install-Package EntityFramework-IncludePrerelease
+
 
 <connectionStrings>
     <add name="MyDBConnectionString" 
@@ -38,6 +52,11 @@ Update-Database
 agregue luego Books 
 
 add-migration updateNameProperty
+
+agregue ahora varios modelos
+
+add-migration updateNamePropertyModelosNuevos
+
 
 update-database
 

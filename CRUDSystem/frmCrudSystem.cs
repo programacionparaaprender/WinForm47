@@ -71,14 +71,20 @@ namespace CRUDSystem
 
                 variable++;
 
-                hoja_trabajo.Cells[variable, 1] = "N°";
-                hoja_trabajo.Cells[variable, 2] = "Name";
-                hoja_trabajo.Cells[variable, 3] = "Lastname";
-                hoja_trabajo.Cells[variable, 4] = "Age";
-                hoja_trabajo.Cells[variable, 5] = "Address";
-                hoja_trabajo.Cells[variable, 6] = "D.O.B.";
-
                 
+
+                for(int i = 0; i < this.dataGridView1.Columns.Count; i++)
+                {
+                    //hoja_trabajo.Cells[variable, 1] = "N°";
+                    //hoja_trabajo.Cells[variable, 2] = "Name";
+                    //hoja_trabajo.Cells[variable, 3] = "Lastname";
+                    //hoja_trabajo.Cells[variable, 4] = "Age";
+                    //hoja_trabajo.Cells[variable, 5] = "Address";
+                    //hoja_trabajo.Cells[variable, 6] = "D.O.B.";
+                    string Nombrecolumna;
+                    Nombrecolumna = this.dataGridView1.Columns[i].Name.ToString();
+                    hoja_trabajo.Cells[variable, i + 1] = Nombrecolumna;
+                }
 
 
 
@@ -90,12 +96,33 @@ namespace CRUDSystem
                 //aumentar tamaño de celda
                 hoja_trabajo.Columns["F"].ColumnWidth = hoja_trabajo.Columns["F"].ColumnWidth * 2;
                 hoja_trabajo.Rows[variable].RowHeight = hoja_trabajo.Rows[variable].RowHeight * 2;
-
+                Microsoft.Office.Interop.Excel.Style style;
 
                 for (int i = 0; i < this.dataGridView1.Rows.Count; i++)
                 {
                     for (int j = 0; j < this.dataGridView1.Columns.Count; j++)
                     {
+                        //this.dataGridView1.Rows[i].Cells[j].Style.BackColor;
+                        //this.dataGridView1.Rows[i].DefaultCellStyle.BackColor;
+                        //hoja_trabajo.Cells[i + 1, j + 1].Interior.Color
+                        byte byteR = this.dataGridView1.Rows[i].Cells[j].Style.BackColor.R;
+                        byte byteG = this.dataGridView1.Rows[i].Cells[j].Style.BackColor.G;
+                        byte byteB = this.dataGridView1.Rows[i].Cells[j].Style.BackColor.B;
+                        if (byteR == 0 && byteG == 0 && byteB == 0)
+                        {
+                            hoja_trabajo.Cells[i + 1, j + 1].Interior.Color = Color.White;
+
+                        }
+                        else
+                        {
+                            style = aplicacion.Application.ActiveWorkbook.Styles.Add("NewStyle" + Convert.ToString(i + 1) + Convert.ToString(j + 1));
+                            //style.Font.Bold = true;
+                            style.Interior.Color = this.dataGridView1.Rows[i].Cells[j].Style.BackColor;
+                            hoja_trabajo.Cells[i + 1, j + 1].Style = "NewStyle"+ Convert.ToString(i + 1) + Convert.ToString(j + 1);
+
+                        }
+
+
                         hoja_trabajo.Range["A"+Convert.ToString(i + 1 + variable) +":F"+Convert.ToString(i + 1 + variable)].Cells.Borders.LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
                         hoja_trabajo.Cells[i + 1 + variable, j + 1] = this.dataGridView1.Rows[i].Cells[j].Value.ToString();
                     }

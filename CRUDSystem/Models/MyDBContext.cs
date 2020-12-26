@@ -68,13 +68,18 @@ namespace CRUDSystem.Models
     //    //}
     //}
 
-    public DbSet<Workout> Workout { get; set; }
+        public DbSet<Workout> Workout { get; set; }
 
         public DbSet<Book> Books { get; set; }
 
         public DbSet<Product> Products { get; set; }
 
         public DbSet<Detail> Details { get; set; }
+
+        //public DbSet<Tabla> Tablas { get; set; }
+        //public DbSet<Procedimiento> Procedimientos { get; set; }
+        //public DbSet<Reporte> Reportes { get; set; }
+        //public DbSet<Formulario> Formularios { get; set; }
 
     }
 }
