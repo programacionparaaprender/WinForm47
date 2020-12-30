@@ -16,7 +16,12 @@ namespace CRUDSystem.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+
+            modelBuilder.Entity<TablaProcedimiento>().HasKey(x => new { x.TablaId, x.ProcedimientoId });
+            
             base.OnModelCreating(modelBuilder);
+
+           
         }
 
     //    protected override void Seed(MyDBContext context)
@@ -76,8 +81,9 @@ namespace CRUDSystem.Models
 
         public DbSet<Detail> Details { get; set; }
 
-        //public DbSet<Tabla> Tablas { get; set; }
-        //public DbSet<Procedimiento> Procedimientos { get; set; }
+        public DbSet<Tabla> Tablas { get; set; }
+        public DbSet<Procedimiento> Procedimientos { get; set; }
+        public DbSet<TablaProcedimiento> TablaProcedimientos { get; set; }
         //public DbSet<Reporte> Reportes { get; set; }
         //public DbSet<Formulario> Formularios { get; set; }
 

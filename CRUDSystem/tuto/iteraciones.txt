@@ -29,9 +29,7 @@ https://www.codeproject.com/Articles/19045/Manipulating-colors-in-NET-Part-1
 https://stackoverflow.com/questions/16497938/ef-5-enable-migrations-no-context-type-was-found-in-the-assembly
 
 ### relaciones
-https://docs.microsoft.com/en-us/ef/ef6/fundamentals/relationships
- posible solución
- Install-Package EntityFramework-IncludePrerelease
+https://www.youtube.com/watch?v=Yn-q7fkHbeo
 
 
 <connectionStrings>
@@ -40,7 +38,9 @@ https://docs.microsoft.com/en-us/ef/ef6/fundamentals/relationships
     providerName="System.Data.SqlClient"/>
     </connectionStrings>
 
-Enable-Migrations -ProjectName CRUDSystem -ContextTypeName MyDBContext
+Enable-Migrations -ProjectName WinForm47 -ContextTypeName MyDBContext
+
+EntityFramework\Enable-Migrations  -ProjectName CRUDSystem -ContextTypeName MyDBContext
 
 otro
 Enable-Migrations -ProjectName WinFormsDotnet -ContextTypeName MyDBContext
@@ -53,9 +53,11 @@ agregue luego Books
 
 add-migration updateNameProperty
 
+update-database
+
 agregue ahora varios modelos
 
-add-migration updateNamePropertyModelosNuevos
+add-migration updateNameTablaProcedimiento
 
 
 update-database

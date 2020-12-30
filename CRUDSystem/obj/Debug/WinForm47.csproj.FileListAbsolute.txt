@@ -59,3 +59,4 @@ C:\Users\Bus209\Documents\htdocs\WinForm47\CRUDSystem\obj\Debug\WinForm47.csproj
 C:\Users\Bus209\Documents\htdocs\WinForm47\CRUDSystem\obj\Debug\CRUDSystem.exe
 C:\Users\Bus209\Documents\htdocs\WinForm47\CRUDSystem\obj\Debug\CRUDSystem.pdb
 C:\Users\Bus209\Documents\htdocs\WinForm47\CRUDSystem\obj\Debug\CRUDSystem.frmTiemposProyecto.resources
+C:\Users\Bus209\Documents\htdocs\WinForm47\CRUDSystem\obj\Debug\CRUDSystem.Migrations.updateNameTablaProcedimiento.resources

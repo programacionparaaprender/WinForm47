@@ -11,13 +11,17 @@ namespace CRUDSystem.Models
 {
     public class Tabla
     {
-        public Tabla()
-        {
-            //this.Procedimientos = new HashSet<Procedimiento>();
-        }
+        //public Tabla()
+        //{
+        //    this.Procedimientos = new HashSet<Procedimiento>();
+        //}
         [Key]
         public int ID { get; set; }
         public string Name { get; set; }
+        public List<TablaProcedimiento> TablaProcedimientos { get; set; }
         //public virtual ICollection<Procedimiento> Procedimientos { get; set; }
+        public override string ToString() {
+            return Name;    
+        }
     }
 }

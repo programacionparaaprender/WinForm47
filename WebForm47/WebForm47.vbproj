@@ -179,6 +179,7 @@
     <Content Include="js\components\Register.vue" />
     <Content Include="js\components\Login.vue" />
     <Content Include="GuardarImagen.ashx" />
+    <Content Include="wfrmGenerarExcels.aspx" />
     <Content Include="wfrmGridView.aspx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -312,6 +313,13 @@
     </Compile>
     <Compile Include="WebVueJS.aspx.vb">
       <DependentUpon>WebVueJS.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="wfrmGenerarExcels.aspx.designer.vb">
+      <DependentUpon>wfrmGenerarExcels.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfrmGenerarExcels.aspx.vb">
+      <DependentUpon>wfrmGenerarExcels.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="wfrmGridView.aspx.designer.vb">

@@ -146,6 +146,10 @@
     <Compile Include="Migrations\201905251433418_Initial.Designer.cs">
       <DependentUpon>201905251433418_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012261436509_updateNameTablaProcedimiento.cs" />
+    <Compile Include="Migrations\202012261436509_updateNameTablaProcedimiento.Designer.cs">
+      <DependentUpon>202012261436509_updateNameTablaProcedimiento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Detail.cs" />
@@ -155,6 +159,7 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Reporte.cs" />
     <Compile Include="Models\Tabla.cs" />
+    <Compile Include="Models\TablaProcedimiento.cs" />
     <Compile Include="Models\Workout.cs" />
     <Compile Include="NodoArbol.cs" />
     <Compile Include="Program.cs" />
@@ -180,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905251433418_Initial.resx">
       <DependentUpon>201905251433418_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012261436509_updateNameTablaProcedimiento.resx">
+      <DependentUpon>202012261436509_updateNameTablaProcedimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
