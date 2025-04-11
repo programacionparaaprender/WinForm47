@@ -187,5 +187,41 @@ namespace CRUDSystem
             }
         }
 
+        public static void DeleteDetail(int id)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["MyDBConnectionString2"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("sp_delete_details", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Agregar parámetro
+                    cmd.Parameters.AddWithValue("@ID", id);
+
+                    try
+                    {
+                        conn.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                            Console.WriteLine("Registro eliminado correctamente.");
+                        else
+                            Console.WriteLine("No se encontró el registro con ese ID.");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error al eliminar el registro: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DeleteDetail(id);
+            listarDetails();
+        }
     }
 }

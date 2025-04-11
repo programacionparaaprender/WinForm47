@@ -273,6 +273,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>MyDb.mdf</DependentUpon>
     </Content>
+    <Content Include="tuto\sp_delete_details.sql" />
     <Content Include="tuto\sp_details.sql">
       <SubType>Form</SubType>
     </Content>
