@@ -95,6 +95,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=9.0.0.4, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.9.0.4\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
@@ -118,6 +122,12 @@
       <DependentUpon>DataSetEjemplo.xsd</DependentUpon>
     </Compile>
     <Compile Include="Entidad.cs" />
+    <Compile Include="frmCrudProcedures.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCrudProcedures.Designer.cs">
+      <DependentUpon>frmCrudProcedures.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCrudSystem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +181,9 @@
       <DependentUpon>TESTDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Util.cs" />
+    <EmbeddedResource Include="frmCrudProcedures.resx">
+      <DependentUpon>frmCrudProcedures.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCrudSystem.resx">
       <DependentUpon>frmCrudSystem.cs</DependentUpon>
     </EmbeddedResource>
@@ -260,6 +273,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>MyDb.mdf</DependentUpon>
     </Content>
+    <Content Include="tuto\sp_details.sql">
+      <SubType>Form</SubType>
+    </Content>
+    <Content Include="tuto\sp_insert_details.sql" />
+    <Content Include="tuto\sp_update_details.sql" />
     <None Include="Resources\animacion1.png" />
     <None Include="Resources\background.gif" />
     <None Include="Resources\logo.png" />

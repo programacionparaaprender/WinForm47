@@ -18,7 +18,8 @@ namespace CRUDSystem
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new frmInforme());
             //Application.Run(new frmCrudSystem());
-            Application.Run(new frmTiemposProyecto());
+            Application.Run(new frmCrudProcedures());
+            //Application.Run(new frmTiemposProyecto());
         }
     }
 }

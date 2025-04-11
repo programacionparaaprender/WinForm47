@@ -9,7 +9,7 @@ namespace CRUDSystem.Models
 {
     public class MyDBContext:DbContext
     {
-        public MyDBContext():base("MyDBConnectionString")
+        public MyDBContext():base("MyDBConnectionString2")
         {
 
         }
