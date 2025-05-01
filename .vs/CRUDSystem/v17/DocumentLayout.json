@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\luis1\\Documents\\htdocs\\WinForm47\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{44129845-01BC-4D3E-B2BE-475C310FE815}|CRUDSystem\\WinForm47.csproj|C:\\Users\\luis1\\Documents\\htdocs\\WinForm47\\crudsystem\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{44129845-01BC-4D3E-B2BE-475C310FE815}|CRUDSystem\\WinForm47.csproj|solutionrelative:crudsystem\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{44129845-01BC-4D3E-B2BE-475C310FE815}|CRUDSystem\\WinForm47.csproj|c:\\users\\luis1\\documents\\htdocs\\winform47\\crudsystem\\frmcrudprocedures.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{44129845-01BC-4D3E-B2BE-475C310FE815}|CRUDSystem\\WinForm47.csproj|solutionrelative:crudsystem\\frmcrudprocedures.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -23,10 +27,6 @@
       "RelativeMoniker": "D:0:0:{44129845-01BC-4D3E-B2BE-475C310FE815}|CRUDSystem\\WinForm47.csproj|solutionrelative:crudsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{44129845-01BC-4D3E-B2BE-475C310FE815}|CRUDSystem\\WinForm47.csproj|C:\\Users\\luis1\\Documents\\htdocs\\WinForm47\\crudsystem\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{44129845-01BC-4D3E-B2BE-475C310FE815}|CRUDSystem\\WinForm47.csproj|solutionrelative:crudsystem\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{44129845-01BC-4D3E-B2BE-475C310FE815}|CRUDSystem\\WinForm47.csproj|C:\\Users\\luis1\\Documents\\htdocs\\WinForm47\\crudsystem\\models\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{44129845-01BC-4D3E-B2BE-475C310FE815}|CRUDSystem\\WinForm47.csproj|solutionrelative:crudsystem\\models\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -42,58 +42,61 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "frmCrudProcedures.cs",
               "DocumentMoniker": "C:\\Users\\luis1\\Documents\\htdocs\\WinForm47\\CRUDSystem\\frmCrudProcedures.cs",
               "RelativeDocumentMoniker": "CRUDSystem\\frmCrudProcedures.cs",
               "ToolTip": "C:\\Users\\luis1\\Documents\\htdocs\\WinForm47\\CRUDSystem\\frmCrudProcedures.cs",
               "RelativeToolTip": "CRUDSystem\\frmCrudProcedures.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAqAAAA",
+              "ViewState": "AQIAABcAAAAAAAAAAAAAwB8AAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-11T20:33:41.955Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "frmCrudProcedures.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\luis1\\Documents\\htdocs\\WinForm47\\CRUDSystem\\frmCrudProcedures.cs",
               "RelativeDocumentMoniker": "CRUDSystem\\frmCrudProcedures.cs",
               "ToolTip": "C:\\Users\\luis1\\Documents\\htdocs\\WinForm47\\CRUDSystem\\frmCrudProcedures.cs [Dise\u00F1o]",
               "RelativeToolTip": "CRUDSystem\\frmCrudProcedures.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-11T20:12:50.794Z"
+              "WhenOpened": "2025-04-11T20:12:50.794Z",
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "frmCrudSystem.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\luis1\\Documents\\htdocs\\WinForm47\\CRUDSystem\\frmCrudSystem.cs",
               "RelativeDocumentMoniker": "CRUDSystem\\frmCrudSystem.cs",
               "ToolTip": "C:\\Users\\luis1\\Documents\\htdocs\\WinForm47\\CRUDSystem\\frmCrudSystem.cs [Dise\u00F1o]",
               "RelativeToolTip": "CRUDSystem\\frmCrudSystem.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-11T20:07:13.997Z"
+              "WhenOpened": "2025-04-11T20:07:13.997Z",
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "App.config",
               "DocumentMoniker": "C:\\Users\\luis1\\Documents\\htdocs\\WinForm47\\CRUDSystem\\App.config",
               "RelativeDocumentMoniker": "CRUDSystem\\App.config",
               "ToolTip": "C:\\Users\\luis1\\Documents\\htdocs\\WinForm47\\CRUDSystem\\App.config",
               "RelativeToolTip": "CRUDSystem\\App.config",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAB7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-04-11T20:03:42.463Z"
+              "WhenOpened": "2025-04-11T20:03:42.463Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\luis1\\Documents\\htdocs\\WinForm47\\CRUDSystem\\Program.cs",
               "RelativeDocumentMoniker": "CRUDSystem\\Program.cs",
@@ -101,11 +104,12 @@
               "RelativeToolTip": "CRUDSystem\\Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-11T20:00:56.946Z"
+              "WhenOpened": "2025-04-11T20:00:56.946Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "frmCrudSystem.cs",
               "DocumentMoniker": "C:\\Users\\luis1\\Documents\\htdocs\\WinForm47\\CRUDSystem\\frmCrudSystem.cs",
               "RelativeDocumentMoniker": "CRUDSystem\\frmCrudSystem.cs",
@@ -113,7 +117,8 @@
               "RelativeToolTip": "CRUDSystem\\frmCrudSystem.cs",
               "ViewState": "AQIAALUAAAAAAAAAAAAiwMoAAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-11T20:08:44.71Z"
+              "WhenOpened": "2025-04-11T20:08:44.71Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -125,7 +130,8 @@
               "RelativeToolTip": "CRUDSystem\\Models\\MyDBContext.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-11T20:21:20.241Z"
+              "WhenOpened": "2025-04-11T20:21:20.241Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -137,7 +143,8 @@
               "RelativeToolTip": "CRUDSystem\\tuto\\iteraciones.txt",
               "ViewState": "AQIAABgAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-04-11T20:03:27.992Z"
+              "WhenOpened": "2025-04-11T20:03:27.992Z",
+              "EditorCaption": ""
             }
           ]
         }
